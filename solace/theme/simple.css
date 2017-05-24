@@ -1,0 +1,21 @@
+/* Style Sheet for popups
+---------------------------------------- */
+
+#search_memberlist table.table1 tbody tr, #search_memberlist table.table1 tbody td, #results table.table1 tbody tr,#results table.table1 tbody td {
+  border-color: #ececec;
+}
+#search_memberlist a, #results a {
+  color: #555;
+}
+#search_memberlist .panel, #results .panel {
+  background: #ececec;
+}
+#search_memberlist .bg1, #results .bg1 {
+  background: #ececec;
+}
+#search_memberlist .bg2, #results .bg2 {
+  background: #f9f4f4;
+}
+a {
+  color: #555;
+}

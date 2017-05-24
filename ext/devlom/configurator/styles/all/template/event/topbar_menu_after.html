@@ -1,0 +1,10 @@
+{% if saved_config.general.preset_switcher == 'Yes' or not saved_config.general.preset_switcher %}
+<li class="has-dropdown not-click">
+  <a href="#">Variation [{% if switcher_preset_name %}{{ switcher_preset_name|capitalize }}{% else %}Custom{% endif %}] </a>
+    <ul class="dropdown">
+      {% for preset in presets %}
+      <li><a href="{U_INDEX}?preset=preset{{ loop.index }}">Preset Style {{ loop.index }}</a></li>
+      {% endfor %}
+    </ul>
+</li>
+{% endif %}

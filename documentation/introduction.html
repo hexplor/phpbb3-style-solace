@@ -1,0 +1,44 @@
+<html lang="en" class=" js csstransforms3d">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="./inc/style.css" type="text/css" rel="stylesheet">
+  <link href="./inc/custom.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <h1>Editing and Customization</h1>
+  <p>In Solace, adjusting style is split into two parts: </p>
+  <ul>
+    <li>Devlom Configurator - extension that provides graphical user administration interface. There you can configure style visual appearance, various options and settings.</li>
+  </ul>
+  <p><img alt="Extension Structure" src="screenshots/configurator.jpg"></p>
+  <ul>
+    <li>Yaml files - What is yaml ? YAML is a simple language that describes data. According to the official <a href="http://yaml.org/">YAML website</a>, YAML is "a human friendly data serialization standard for all programming languages". In Solace we used yaml for forum content like: menus, slideshows and more. Thanks to YAML, you can create unlimited menu items, slides and easily manage style configuration  </li>
+  </ul>
+  <p>In next chapters, we will explain how to customize selected forum parts using methods above. </p>
+
+  <div class="notices warning">
+    <p>Devlom Configurator <strong>must</strong> be installed for both configuration methods to work.  </p>
+  </div>
+
+  <h2>Template Inheritance</h2>
+
+  We're going to quote phpBB on that:
+
+  <blockquote cite="https://www.phpbb.com/styles/create/#a-inheritance">
+    Template inheritance is arguably the most useful thing about phpBB's template-engine for style authors.
+
+    If you base a new style on an existing one, but you only want to change a few templates, you don't have to copy them all. This would create a lot of identical copies of files on your server, and things would get cluttered pretty soon. It would also become very tedious to merge all the changes to the templates, if the "parent" style were to receive an update.
+  </blockquote>
+
+  <p>
+    This is by far the most common error on all premium phpBB 3.1 styles. Style authors are trying to recreate almost every single prosilver file, which breaks compatibility with extensions and makes style difficult to upgrade. In Solace we went one step forward. We created style that is based on prosilver. We modified only 3 template files (!!) instead of around 150 like other style developers do.
+  </p>
+
+  <p>
+    Result ? Solace is 99% compatible with prosilver codebase. It's ready to work with custom extensions and it's absolutely easy to upgrade when new version of phpBB 3.1 is out. Let's say, when you update phpBB 3.1 to newer version. You basically updated Solace to newer version as well. It's simple as that.
+  </p>
+</p>
+<br />
+<script src="./inc/iframeResizer.contentWindow.min.js" type="text/javascript" ></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+{# This file holds all default values if Devlom Configurator is not installed #}
+{% set defaults =
+{
+'logo':
+    { 'type': 'text', 'text':  'Solace', 'image': 'https://www.google.pl/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png', 'link': false, 'width' : '149px', 'height': '52px' },
+'topmenu':[
+    { 'name': 'Home', 'url':  U_INDEX, 'active': true, 'icon': 'home', 'icon_provider': 'fontawesome',},
+    { 'name': 'Menuitem 1', 'url':  '#', 'active': false },
+    { 'name': 'SubMenu Example', 'url':  '#', 'active': false,
+    'submenu': [
+    { 'name': 'Icon Item', 'url':  '#', 'active': true, 'icon': 'bank', 'icon_provider': 'fontawesome'},
+    { 'name': 'Example Item', 'url':  '#', 'active': false },
+    { 'name': 'Example Item', 'url':  '#', 'active': false,
+        'submenu': [
+        { 'name': 'Example Item', 'url':  '#', 'active': false },
+        { 'name': 'Example Item', 'url':  '#', 'active': false,
+            'submenu': [
+            { 'name': 'Example Item', 'url':  '#', 'active': false },
+            { 'name': 'Example Item', 'url':  '#', 'active': false },
+            { 'name': 'Example Item', 'url':  '#', 'active': false },
+            ]
+        },
+        { 'name': 'Example Item', 'url':  '#', 'active': false },
+        ]
+    },
+    { 'name': 'Example Item', 'url':  '#', 'active': false },
+    ]
+    },
+    { 'name': 'Example Item', 'url':  '#', 'active': false },
+],
+'slides':[
+    { 'image': 'fullimage1.jpg', 'title':  'Try. Something. New.', 'description': 'Nullam quis risus eget urna mollis ornare vel eu leo. Integer posuere erat a ante venenatis lorem anakis dapibus posuere velit aliquet.'},
+    { 'image': 'fullimage2.jpg', 'title':  'Another slide', 'description': 'Nulla vitae elit libero, a pharetra augue.'},
+    { 'image': 'fullimage3.jpg', 'title':  'Mollis Fusce', 'description': 'Nullam id dolor id nibh ultricies vehicula ut id elit.'},
+],
+'footer':
+    {'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida quam quis nunc rutrum placerat. Proin eu mi vitae neque veh interdum id nec turpis nam auctor faucibus sollicitudin.'},
+'footer_social':[
+        { 'provider': 'lineicon', 'icon':  'facebook', 'url': '#'},
+        { 'provider': 'lineicon', 'icon':  'twitter', 'url': '#'},
+        { 'provider': 'lineicon', 'icon':  'linkedin', 'url': '#'},
+    ],
+'footer_contact':{'content': [
+        { 'line': '2841 Conaway Street'},
+        { 'line': 'Bloomfield, IN 47424'},
+        { 'line': 'The Fox and Hound'},
+        { 'line': 'JasonJHicks@jourrapide.com'},
+        { 'line': '2014 Lexus GS 450h'},
+        ],
+        'title': 'Contact Info.'
+        },
+'footer_quickmenu':{'content': [
+        { 'name': 'Example Item 1', 'url': '#'},
+        { 'name': 'Example Item 2', 'url': '#'},
+        { 'name': 'Example Item 3', 'url': '#'},
+        { 'name': 'Example Item 4', 'url': '#'},
+        { 'name': 'Example Item 5', 'url': '#'},
+        ],
+        'title': 'Quick Menu.'
+        },
+'footer_subscribe':
+        {'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida quam quis nunc rutrum placerat.', 'feedburner': 'your_id', 'title': 'Subscribe.'},
+'footer_copyright':
+    {'content': 'Copyright © 2015 DEVLOM ®'},
+'footer_copyrightmenu':[
+        { 'name': 'Example Item 1', 'url': '#'},
+        { 'name': 'Example Item 2', 'url': '#'},
+        { 'name': 'Example Item 3', 'url': '#'},
+    ],
+'defaults':
+        {
+        'accent': '#eac02c',
+        'accent2': '#ececec',
+        'accent_light': '#f9d24c',
+        'forumicon_background': '#ffffff',
+        'forumicon_background_unread': '#eac02c',
+        'forumicon_color': '#eac02c',
+        'forumicon_color_unread': '#ffffff',
+        'main_background': '#ffffff',
+        'main_text_color': '#555555',
+        'headers_text_color': '#898989',
+        'main_border_color': '#ececec',
+        'navbar_background': '#eac02c',
+        'navbar_text_color': '#ffffff',
+        'error': '#BC2A4D',
+        'contrast': '#000000',
+        'code': '#2E8B57',
+        'footer_image_background': 'backgrounds/preset1.jpg'
+         },
+'icons':
+        {
+        'provider': 'lineicons',
+        'global_read' : 'e030',
+        'global_read_mine'            : 'e030',
+        'global_read_locked'          : 'e020',
+        'global_read_locked_mine'     : 'e020',
+        'global_unread'               : 'e030',
+        'global_unread_mine'          : 'e030',
+        'global_unread_locked'        : 'e020',
+        'global_unread_locked_mine'   : 'e020',
+        'announce_read'               : 'e030',
+        'announce_read_mine'          : 'e030',
+        'announce_read_locked'        : 'e020',
+        'announce_read_locked_mine'   : 'e020',
+        'announce_unread'             : 'e030',
+        'announce_unread_mine'        : 'e030',
+        'announce_unread_locked'      : 'e020',
+        'announce_unread_locked_mine' : 'e020',
+        'forum_link'                  : 'e02e',
+        'forum_read'                  : "e006",
+        'forum_read_locked'           : 'e020',
+        'forum_read_subforum'         : 'e006',
+        'forum_unread'                : 'e006',
+        'forum_unread_locked'         : 'e020',
+        'forum_unread_subforum'       : 'e006',
+        'sticky_read'                 : 'e02d',
+        'sticky_read_mine'            : 'e02d',
+        'sticky_read_locked'          : 'e020',
+        'sticky_read_locked_mine'     : 'e020',
+        'sticky_unread'               : 'e02d',
+        'sticky_unread_mine'          : 'e02d',
+        'sticky_unread_locked'        : 'e020',
+        'sticky_unread_locked_mine'   : 'e020',
+        'topic_moved'                 : 'e05a',
+        'topic_read'                  : 'e005',
+        'topic_read_mine'             : 'e005',
+        'topic_read_hot'              : 'e051',
+        'topic_read_hot_mine'         : 'e051',
+        'topic_read_locked'           : 'e020',
+        'topic_read_locked_mine'      : 'e020',
+        'topic_unread'                : 'e005',
+        'topic_unread_mine'           : 'e005',
+        'topic_unread_hot'            : 'e051',
+        'topic_unread_hot_mine'       : 'e051',
+        'topic_unread_locked'         : 'e020',
+        'topic_unread_locked_mine'    : 'e020',
+        'pm_read'                     : 'e028',
+        'pm_unread'                   : 'e028',
+}
+}
+%}
+
+{# Prepare config variable #}
+{% set config = defaults %}
+
+{# Slideshow Enable/Disable #}
+{% if not saved_config.slideshow.enable or saved_config.slideshow.enable == 'Yes' %}
+{% set slideshow_enabled = true %}
+{% if saved_config.slideshow.frontpage_only == 'Yes' %}
+  {% if SCRIPT_NAME == 'index' %}
+    {% set slideshow_enabled = true %}
+  {% else %}
+    {% set slideshow_enabled = false %}
+  {% endif %}
+{% endif %}
+
+{% endif %}
+
+{# We will simply load the forum now #}
+{% block overall_header %}
+{% endblock %}
+{% block overall_footer %}
+{% endblock %}

@@ -1,0 +1,111 @@
+<html lang="en" class=" js csstransforms3d">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="./inc/style.css" type="text/css" rel="stylesheet">
+  <link href="./inc/custom.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <h1>Adding more presets</h1>
+
+  <p>
+    Solace has 6 Preset Styles by default. You can easily add your own presets by modifying one file:
+  </p>
+  <pre>solace/presets.yaml</pre>
+
+  <p>
+    Let's take a look at Preset 6:
+  </p>
+
+  <pre><code>
+preset6:
+  accent: "#3E342A"
+  accent2: "#ececec"
+  accent_light: "#3E342A"
+  forumicon_background: "#ffffff"
+  forumicon_background_unread: "#3E342A"
+  forumicon_color: "#3E342A"
+  forumicon_color_unread: "#ffffff"
+  main_background: "#ffffff"
+  main_text_color: "#555555"
+  headers_text_color: "#898989"
+  main_border_color: "#ececec"
+  navbar_background: "#3E342A"
+  navbar_text_color: "#ffffff"
+  error: "#BC2A4D"
+  contrast: "#000000"
+  code: "#2E8B57"
+  footer_image_background: "backgrounds/preset6.jpg"</code></pre>
+
+<p>
+  As you can see, it's just a set of key variables with values. Just copy whole set, change preset count to <strong>preset7</strong>, adjust variables and you're done:
+</p>
+
+<pre><code>
+preset7:
+  accent: "#3a5795"
+  accent2: "#ececec"
+  accent_light: "#3a5795"
+  forumicon_background: "#ffffff"
+  forumicon_background_unread: "#3a5795"
+  forumicon_color: "#3a5795"
+  forumicon_color_unread: "#ffffff"
+  main_background: "#ffffff"
+  main_text_color: "#555555"
+  headers_text_color: "#898989"
+  main_border_color: "#ececec"
+  navbar_background: "#3E342A"
+  navbar_text_color: "#ffffff"
+  error: "#BC2A4D"
+  contrast: "#000000"
+  code: "#2E8B57"
+  footer_image_background: "backgrounds/preset6.jpg"</code></pre>
+
+  <p>
+    Remember about correct indentation. Presets should be indented like that:
+  </p>
+
+  <pre><code>
+  preset6:
+    accent: "#3E342A"
+    accent2: "#ececec"
+    accent_light: "#3E342A"
+    forumicon_background: "#ffffff"
+    forumicon_background_unread: "#3E342A"
+    forumicon_color: "#3E342A"
+    forumicon_color_unread: "#ffffff"
+    main_background: "#ffffff"
+    main_text_color: "#555555"
+    headers_text_color: "#898989"
+    main_border_color: "#ececec"
+    navbar_background: "#3E342A"
+    navbar_text_color: "#ffffff"
+    error: "#BC2A4D"
+    contrast: "#000000"
+    code: "#2E8B57"
+    footer_image_background: "backgrounds/preset6.jpg"
+  preset7:
+    accent: "#3a5795"
+    accent2: "#ececec"
+    accent_light: "#3a5795"
+    forumicon_background: "#ffffff"
+    forumicon_background_unread: "#3a5795"
+    forumicon_color: "#3a5795"
+    forumicon_color_unread: "#ffffff"
+    main_background: "#ffffff"
+    main_text_color: "#555555"
+    headers_text_color: "#898989"
+    main_border_color: "#ececec"
+    navbar_background: "#3E342A"
+    navbar_text_color: "#ffffff"
+    error: "#BC2A4D"
+    contrast: "#000000"
+    code: "#2E8B57"
+    footer_image_background: "backgrounds/preset6.jpg"</code></pre>
+
+    <p>
+      That's it. You may also <strong>Purge the cache</strong> and you're done.
+    </p>
+    <br />
+  <script src="./inc/iframeResizer.contentWindow.min.js" type="text/javascript" ></script>
+</body>
+</html>

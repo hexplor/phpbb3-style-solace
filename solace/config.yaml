@@ -1,0 +1,107 @@
+colours:
+    accent: '#EAC02C'
+    accent2: '#ECECEC'
+    accent_light: '#F9D24C'
+    forumicon_background: '#FFFFFF'
+    forumicon_background_unread: '#EAC02C'
+    forumicon_color: '#EAC02C'
+    forumicon_color_unread: '#FFFFFF'
+    main_background: '#FFFFFF'
+    main_text_color: '#555555'
+    main_border_color: '#ECECEC'
+    headers_text_color: '#898989'
+    navbar_background: '#EAC02C'
+    navbar_text_color: '#FFFFFF'
+    code: '#2E8B57'
+    error: '#BC2A4D'
+    contrast: '#000000'
+    footer_image_background: backgrounds/preset1.jpg
+general:
+    font: Default
+    fontsize: 13px
+    font_spans: Yes
+    topbar_type: sticky
+    menu_font: Default
+    menu_fontsize: 15px
+    preset_switcher: Yes
+logo:
+    type: text
+    text: Solace
+    font: Default
+    fontsize: 40px
+    image: site_logo.gif
+    width: 120px
+    height: 45px
+    link: ./
+slideshow:
+    enable: Yes
+    presets_synchronization: Yes
+    frontpage_only: Yes
+    title_font: Default
+    title_fontsize: 100px
+    description_font: Default
+    description_fontsize: 1.7em
+    transition: fade
+    navigation: Yes
+    pagination: Yes
+    height: ''
+footer:
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida quam quis nunc rutrum placerat. Proin eu mi vitae neque veh interdum id nec turpis nam auctor faucibus sollicitudin.'
+    contact_info_title: 'Contact Info.'
+    contact_info_description: "2841 Conaway Street \nBloomfield, IN 47424  \nThe Fox and Hound \nJasonJHicks@jourrapide.com \n2014 Lexus GS 450h"
+    contact_info_enable: Yes
+    quick_menu_title: 'Quick Menu.'
+    quick_menu_enable: Yes
+    subscribe_title: Subscribe.
+    subscribe_enable: Yes
+    subscribe_description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida quam quis nunc rutrum placerat.'
+    feedburner: your_id
+    copyright: 'Copyright © 2015 DEVLOM ®'
+icons:
+    provider: lineicons
+    global_read: e030
+    global_read_mine: e030
+    global_read_locked: e020
+    global_read_locked_mine: e020
+    global_unread: e030
+    global_unread_mine: e030
+    global_unread_locked: e020
+    global_unread_locked_mine: e020
+    announce_read: e030
+    announce_read_mine: e030
+    announce_read_locked: e020
+    announce_read_locked_mine: e020
+    announce_unread: e030
+    announce_unread_mine: e030
+    announce_unread_locked: e020
+    announce_unread_locked_mine: e020
+    forum_link: e02e
+    forum_read: e006
+    forum_read_locked: e020
+    forum_read_subforum: e006
+    forum_unread: e006
+    forum_unread_locked: e020
+    forum_unread_subforum: e006
+    sticky_read: e02d
+    sticky_read_mine: e02d
+    sticky_read_locked: e020
+    sticky_read_locked_mine: e020
+    sticky_unread: e02d
+    sticky_unread_mine: e02d
+    sticky_unread_locked: e020
+    sticky_unread_locked_mine: e020
+    topic_moved: e05a
+    topic_read: e005
+    topic_read_mine: e005
+    topic_read_hot: e051
+    topic_read_hot_mine: e051
+    topic_read_locked: e020
+    topic_read_locked_mine: e020
+    topic_unread: e005
+    topic_unread_mine: e005
+    topic_unread_hot: e051
+    topic_unread_hot_mine: e051
+    topic_unread_locked: e020
+    topic_unread_locked_mine: e020
+    pm_read: e028
+    pm_unread: e028

@@ -1,0 +1,444 @@
+- name: Colours
+  icon: keypad
+  content:
+    - name: Accent
+      description: First accent color for your forum. This is main color for various forum elements.
+      type: picker
+      default: "#eac02c"
+    - name: Accent2
+      description: Second accent color for your forum. This color is covers light content areas of the forum ie: blockquote and similar.
+      type: picker
+      default: "#ececec"
+    - name: Accent Light
+      description: Light version of main accent. Used by button hovers and several small background elements.
+      type: picker
+      default: "#f9d24c"
+    - name: ForumIcon Background
+      description: Background color of forum and topic icons.
+      type: picker
+      default: "#ffffff"
+    - name: ForumIcon Background Unread
+      description: Background color of unread forum and topic icons.
+      type: picker
+      default: "#eac02c"
+    - name: ForumIcon Color
+      description: Forum icons color.
+      type: picker
+      default: "#eac02c"
+    - name: ForumIcon Color Unread
+      description: Unread forum icons color.
+      type: picker
+      default: "#ffffff"
+    - name: Main Background
+      description: Main background of your forum website.
+      type: picker
+      default: "#ffffff"
+    - name: Main Text Color
+      description: Text color of your forum website.
+      type: picker
+      default: "#555555"
+    - name: Main Border Color
+      description: Set border color for elements with border.
+      type: picker
+      default: "#ececec"
+    - name: Headers Text Color
+      description: Text color for forum headers.
+      type: picker
+      default: "#898989"
+    - name: Navbar Background
+      description: Background of top and bottom navigation bar.
+      type: picker
+      default: "#eac02c"
+    - name: Navbar Text Color
+      description: Text color of top and bottom navigation bar.
+      type: picker
+      default: "#ffffff"
+    - name: Code
+      description: Code markup color in forum psots.
+      type: picker
+      default: "#2E8B57"
+    - name: Error
+      description: Error text and background color.
+      type: picker
+      default: "#BC2A4D"
+    - name: Contrast
+      description: Opposite color to main background. Used by several small text labels.
+      type: picker
+      default: "#000000"
+    - name: Footer Image Background
+      description: Set background image for footer area. Upload it to <strong>styles/solace/theme/images/backgrounds</strong>.
+      type: image
+      default: "backgrounds/preset1.jpg"
+- name: General
+  icon: tools
+  content:
+    - name: Font
+      description: Pick preferred font from Google WebFonts directory.
+      type: font
+      default: "Default"
+    - name: FontSize
+      description: General font size of the forum.
+      type: text
+      default: "13px"
+      size: 50px;
+    - name: Font Spans
+      description: Enable or disable colored font spans headers in the forum.
+      type: radio
+      default: "Yes"
+      options:
+        - value: Yes
+        - value: No
+    - name: TopBar Type
+      description: Decide if you want topbar to be sticky at the top of your browser or normal (fixed position).
+      type: select
+      default: "sticky"
+      options:
+        - value: sticky
+        - value: normal
+    - name: Menu Font
+      description: Pick preferred menu font from Google WebFonts directory.
+      type: font
+      default: "Default"
+    - name: Menu FontSize
+      description: Font size of your menu.
+      type: text
+      default: "15px"
+      size: 50px;
+    - name: Preset Switcher
+      description: Enable or disable color variations preset switcher in the top menu.
+      type: radio
+      default: "Yes"
+      options:
+        - value: Yes
+        - value: No
+- name: Logo
+  icon: id
+  content:
+    - name: Type
+      description: Select logo type. Text - text based logo. Image - provide file path to logo image.
+      type: select
+      default: "text"
+      options:
+        - value: text
+        - value: image
+    - name: Text
+      description: Default logo text for your forum.
+      type: text
+      default: "Solace"
+    - name: Font
+      description: Pick preferred logo text font from Google WebFonts directory.
+      type: font
+      default: "Default"
+    - name: FontSize
+      description: Font size of your logo text.
+      type: text
+      default: "40px"
+      size: 50px;
+    - name: Image
+      description: File name of logo image (<strong>Image</strong> must be selected in logo <strong>Type</strong>). Upload logo to <strong>styles/solace/theme/images/</strong> first.
+      type: image
+      size: 240px
+      default: "site_logo.gif"
+    - name: Width
+      description: Logo image width
+      type: text
+      default: "120px"
+      size: 50px;
+    - name: Height
+      description: Logo image width
+      type: text
+      default: "45px"
+      size: 50px;
+    - name: Link
+      description: Where user should be redirected after clicking a logo.
+      type: text
+      size: 240px
+      default: "./"
+- name: Slideshow
+  icon: photo
+  content:
+    - name: Enable
+      description: Enable or disable slideshow on the forum
+      type: radio
+      default: "Yes"
+      options:
+        - value: Yes
+        - value: No
+    - name: Presets Synchronization
+      description: Enable or disable presets synchronization. For example if <strong>preset3</strong> is selected then slideshow jumps to slide 3 on load.
+      type: radio
+      default: "Yes"
+      options:
+        - value: Yes
+        - value: No
+    - name: Frontpage Only
+      description: Show slideshows only on frontpage
+      type: radio
+      default: "Yes"
+      options:
+        - value: Yes
+        - value: No
+    - name: Title Font
+      description: Pick preferred font from Google WebFonts directory.
+      type: font
+      default: "Default"
+    - name: Title FontSize
+      description: Main slideshow title fontsize.
+      type: text
+      default: "100px"
+      size: 50px;
+    - name: Description Font
+      description: Pick preferred font from Google WebFonts directory for slideshow description.
+      type: font
+      default: "Default"
+    - name: Description FontSize
+      description: Slideshow description font size.
+      type: text
+      default: "1.7em"
+      size: 50px;
+    - name: Transition
+      description: You can customize slideshow transition effects.
+      type: select
+      default: "fadeUp"
+      options:
+        - value: fade
+        - value: backSlide
+        - value: goDown
+        - value: fadeUp
+        - value: slide
+    - name: Navigation
+      description: Enable or disable arrow navigation.
+      type: radio
+      default: "Yes"
+      options:
+        - value: Yes
+        - value: No
+    - name: Pagination
+      description: Enable or disable slideshow pagination.
+      type: radio
+      default: "Yes"
+      options:
+        - value: Yes
+        - value: No
+    - name: Height
+      description: If no height specified slideshow will adjust to image height.
+      type: text
+      default: ""
+      size: 50px;
+
+- name: Footer
+  icon: display2
+  content:
+    - name: Description
+      description: Few sentences which will be placed in footer, below the logo.
+      type: textarea
+      default: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida quam quis nunc rutrum placerat. Proin eu mi vitae neque veh interdum id nec turpis nam auctor faucibus sollicitudin.
+      width: 334px;
+      height: 100px;
+    - name: Contact Info Title
+      description: Title for Contact Info footer module.
+      type: text
+      default: "Contact Info."
+      size: 150px;
+    - name: Contact Info Description
+      description: Title for Contact Info footer module.
+      type: textarea
+      default: "2841 Conaway Street \nBloomfield, IN 47424  \nThe Fox and Hound \nJasonJHicks@jourrapide.com \n2014 Lexus GS 450h"
+      width: 334px;
+      height: 100px;
+    - name: Contact Info Enable
+      description: Enable or disable Contact Info module in the footer.
+      type: radio
+      default: "Yes"
+      options:
+        - value: Yes
+        - value: No
+    - name: Quick Menu Title
+      description: Title for Quick Menu footer module.
+      type: text
+      default: "Quick Menu."
+      size: 150px;
+    - name: Quick Menu Enable
+      description: Enable or disable Quick Menu module in the footer.
+      type: radio
+      default: "Yes"
+      options:
+        - value: Yes
+        - value: No
+    - name: Subscribe Title
+      description: Title for Subscribe footer module.
+      type: text
+      default: "Subscribe."
+      size: 150px;
+    - name: Subscribe Enable
+      description: Enable or disable Subscribe module in the footer.
+      type: radio
+      default: "Yes"
+      options:
+        - value: Yes
+        - value: No
+    - name: Subscribe Description
+      description: Description for subscribe module.
+      type: textarea
+      default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum gravida quam quis nunc rutrum placerat."
+      width: 334px;
+      height: 100px;
+    - name: Feedburner
+      description: Feedburner ID for Subscribe module.
+      type: text
+      default: "your_id"
+      size: 150px;
+    - name: Copyright
+      description: Copyright text.
+      type: text
+      default: "Copyright © 2015 DEVLOM ®"
+      size: 200px;
+
+- name: Icons
+  icon: target
+  content:
+    - name: Provider
+      description: Webfonts provider for your forum icons. You can chooser FontAwesome icons or Elegant Themes Line Icons.
+      type: select
+      default: "lineicons"
+      options:
+        - value: lineicons
+        - value: fontawesome
+    - name: Global Read
+      default: e030
+      type: forumicon
+    - name: Global Read Mine
+      default: e030
+      type: forumicon
+    - name: Global Read Locked
+      default: e020
+      type: forumicon
+    - name: Global Read Locked Mine
+      default: e020
+      type: forumicon
+    - name: Global Unread
+      default: e030
+      type: forumicon
+    - name: Global Unread Mine
+      default: e030
+      type: forumicon
+    - name: Global Unread Locked
+      default: e020
+      type: forumicon
+    - name: Global Unread Locked Mine
+      default: e020
+      type: forumicon
+    - name: Announce Read
+      default: e030
+      type: forumicon
+    - name: Announce Read Mine
+      default: e030
+      type: forumicon
+    - name: Announce Read Locked
+      default: e020
+      type: forumicon
+    - name: Announce Read Locked Mine
+      default: e020
+      type: forumicon
+    - name: Announce Unread
+      default: e030
+      type: forumicon
+    - name: Announce Unread Mine
+      default: e030
+      type: forumicon
+    - name: Announce Unread Locked
+      default: e020
+      type: forumicon
+    - name: Announce Unread Locked Mine
+      default: e020
+      type: forumicon
+    - name: Forum Link
+      default: e02e
+      type: forumicon
+    - name: Forum Read
+      default: e006",
+      type: forumicon
+    - name: Forum Read Locked
+      default: e020
+      type: forumicon
+    - name: Forum Read subforum
+      default: e006
+      type: forumicon
+    - name: Forum Unread
+      default: e006
+      type: forumicon
+    - name: Forum Unread Locked
+      default: e020
+      type: forumicon
+    - name: Forum Unread subforum
+      default: e006
+      type: forumicon
+    - name: Sticky Read
+      default: e02d
+      type: forumicon
+    - name: Sticky Read Mine
+      default: e02d
+      type: forumicon
+    - name: Sticky Read Locked
+      default: e020
+      type: forumicon
+    - name: Sticky Read Locked Mine
+      default: e020
+      type: forumicon
+    - name: Sticky Unread
+      default: e02d
+      type: forumicon
+    - name: Sticky Unread Mine
+      default: e02d
+      type: forumicon
+    - name: Sticky Unread Locked
+      default: e020
+      type: forumicon
+    - name: Sticky Unread Locked Mine
+      default: e020
+      type: forumicon
+    - name: Topic Moved
+      default: e05a
+      type: forumicon
+    - name: Topic Read
+      default: e005
+      type: forumicon
+    - name: Topic Read Mine
+      default: e005
+      type: forumicon
+    - name: Topic Read Hot
+      default: e051
+      type: forumicon
+    - name: Topic Read Hot Mine
+      default: e051
+      type: forumicon
+    - name: Topic Read Locked
+      default: e020
+      type: forumicon
+    - name: Topic Read Locked Mine
+      default: e020
+      type: forumicon
+    - name: Topic Unread
+      default: e005
+      type: forumicon
+    - name: Topic Unread Mine
+      default: e005
+      type: forumicon
+    - name: Topic Unread Hot
+      default: e051
+      type: forumicon
+    - name: Topic Unread Hot Mine
+      default: e051
+      type: forumicon
+    - name: Topic Unread Locked
+      default: e020
+      type: forumicon
+    - name: Topic Unread Locked Mine
+      default: e020
+      type: forumicon
+    - name: Pm Read
+      default: e028
+      type: forumicon
+    - name: Pm Unread
+      default: e028
+      type: forumicon

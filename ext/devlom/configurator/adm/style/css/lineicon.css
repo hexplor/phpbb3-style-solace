@@ -1,0 +1,343 @@
+@font-face {
+	font-family: 'et-line';
+	src:url('../fonts/et-line.eot');
+	src:url('../fonts/et-line.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/et-line.woff') format('woff'),
+		url('../fonts/et-line.ttf') format('truetype'),
+		url('../fonts/et-line.svg#et-line') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your lineicons */
+[data-lineicon]:before {
+	font-family: 'et-line';
+	content: attr(data-lineicon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	display:inline-block;
+}
+
+/* Use the following CSS code if you want to have a class per lineicon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="lineicon-"] {
+*/
+.lineicon-mobile, .lineicon-laptop, .lineicon-desktop, .lineicon-tablet, .lineicon-phone, .lineicon-document, .lineicon-documents, .lineicon-search, .lineicon-clipboard, .lineicon-newspaper, .lineicon-notebook, .lineicon-book-open, .lineicon-browser, .lineicon-calendar, .lineicon-presentation, .lineicon-picture, .lineicon-pictures, .lineicon-video, .lineicon-camera, .lineicon-printer, .lineicon-toolbox, .lineicon-briefcase, .lineicon-wallet, .lineicon-gift, .lineicon-bargraph, .lineicon-grid, .lineicon-expand, .lineicon-focus, .lineicon-edit, .lineicon-adjustments, .lineicon-ribbon, .lineicon-hourglass, .lineicon-lock, .lineicon-megaphone, .lineicon-shield, .lineicon-trophy, .lineicon-flag, .lineicon-map, .lineicon-puzzle, .lineicon-basket, .lineicon-envelope, .lineicon-streetsign, .lineicon-telescope, .lineicon-gears, .lineicon-key, .lineicon-paperclip, .lineicon-attachment, .lineicon-pricetags, .lineicon-lightbulb, .lineicon-layers, .lineicon-pencil, .lineicon-tools, .lineicon-tools-2, .lineicon-scissors, .lineicon-paintbrush, .lineicon-magnifying-glass, .lineicon-circle-compass, .lineicon-linegraph, .lineicon-mic, .lineicon-strategy, .lineicon-beaker, .lineicon-caution, .lineicon-recycle, .lineicon-anchor, .lineicon-profile-male, .lineicon-profile-female, .lineicon-bike, .lineicon-wine, .lineicon-hotairballoon, .lineicon-globe, .lineicon-genius, .lineicon-map-pin, .lineicon-dial, .lineicon-chat, .lineicon-heart, .lineicon-cloud, .lineicon-upload, .lineicon-download, .lineicon-target, .lineicon-hazardous, .lineicon-piechart, .lineicon-speedometer, .lineicon-global, .lineicon-compass, .lineicon-lifesaver, .lineicon-clock, .lineicon-aperture, .lineicon-quote, .lineicon-scope, .lineicon-alarmclock, .lineicon-refresh, .lineicon-happy, .lineicon-sad, .lineicon-facebook, .lineicon-twitter, .lineicon-googleplus, .lineicon-rss, .lineicon-tumblr, .lineicon-linkedin, .lineicon-dribbble {
+	font-family: 'et-line';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	display:inline-block;
+}
+.lineicon-mobile:before {
+	content: "\e000";
+}
+.lineicon-laptop:before {
+	content: "\e001";
+}
+.lineicon-desktop:before {
+	content: "\e002";
+}
+.lineicon-tablet:before {
+	content: "\e003";
+}
+.lineicon-phone:before {
+	content: "\e004";
+}
+.lineicon-document:before {
+	content: "\e005";
+}
+.lineicon-documents:before {
+	content: "\e006";
+}
+.lineicon-search:before {
+	content: "\e007";
+}
+.lineicon-clipboard:before {
+	content: "\e008";
+}
+.lineicon-newspaper:before {
+	content: "\e009";
+}
+.lineicon-notebook:before {
+	content: "\e00a";
+}
+.lineicon-book-open:before {
+	content: "\e00b";
+}
+.lineicon-browser:before {
+	content: "\e00c";
+}
+.lineicon-calendar:before {
+	content: "\e00d";
+}
+.lineicon-presentation:before {
+	content: "\e00e";
+}
+.lineicon-picture:before {
+	content: "\e00f";
+}
+.lineicon-pictures:before {
+	content: "\e010";
+}
+.lineicon-video:before {
+	content: "\e011";
+}
+.lineicon-camera:before {
+	content: "\e012";
+}
+.lineicon-printer:before {
+	content: "\e013";
+}
+.lineicon-toolbox:before {
+	content: "\e014";
+}
+.lineicon-briefcase:before {
+	content: "\e015";
+}
+.lineicon-wallet:before {
+	content: "\e016";
+}
+.lineicon-gift:before {
+	content: "\e017";
+}
+.lineicon-bargraph:before {
+	content: "\e018";
+}
+.lineicon-grid:before {
+	content: "\e019";
+}
+.lineicon-expand:before {
+	content: "\e01a";
+}
+.lineicon-focus:before {
+	content: "\e01b";
+}
+.lineicon-edit:before {
+	content: "\e01c";
+}
+.lineicon-adjustments:before {
+	content: "\e01d";
+}
+.lineicon-ribbon:before {
+	content: "\e01e";
+}
+.lineicon-hourglass:before {
+	content: "\e01f";
+}
+.lineicon-lock:before {
+	content: "\e020";
+}
+.lineicon-megaphone:before {
+	content: "\e021";
+}
+.lineicon-shield:before {
+	content: "\e022";
+}
+.lineicon-trophy:before {
+	content: "\e023";
+}
+.lineicon-flag:before {
+	content: "\e024";
+}
+.lineicon-map:before {
+	content: "\e025";
+}
+.lineicon-puzzle:before {
+	content: "\e026";
+}
+.lineicon-basket:before {
+	content: "\e027";
+}
+.lineicon-envelope:before {
+	content: "\e028";
+}
+.lineicon-streetsign:before {
+	content: "\e029";
+}
+.lineicon-telescope:before {
+	content: "\e02a";
+}
+.lineicon-gears:before {
+	content: "\e02b";
+}
+.lineicon-key:before {
+	content: "\e02c";
+}
+.lineicon-paperclip:before {
+	content: "\e02d";
+}
+.lineicon-attachment:before {
+	content: "\e02e";
+}
+.lineicon-pricetags:before {
+	content: "\e02f";
+}
+.lineicon-lightbulb:before {
+	content: "\e030";
+}
+.lineicon-layers:before {
+	content: "\e031";
+}
+.lineicon-pencil:before {
+	content: "\e032";
+}
+.lineicon-tools:before {
+	content: "\e033";
+}
+.lineicon-tools-2:before {
+	content: "\e034";
+}
+.lineicon-scissors:before {
+	content: "\e035";
+}
+.lineicon-paintbrush:before {
+	content: "\e036";
+}
+.lineicon-magnifying-glass:before {
+	content: "\e037";
+}
+.lineicon-circle-compass:before {
+	content: "\e038";
+}
+.lineicon-linegraph:before {
+	content: "\e039";
+}
+.lineicon-mic:before {
+	content: "\e03a";
+}
+.lineicon-strategy:before {
+	content: "\e03b";
+}
+.lineicon-beaker:before {
+	content: "\e03c";
+}
+.lineicon-caution:before {
+	content: "\e03d";
+}
+.lineicon-recycle:before {
+	content: "\e03e";
+}
+.lineicon-anchor:before {
+	content: "\e03f";
+}
+.lineicon-profile-male:before {
+	content: "\e040";
+}
+.lineicon-profile-female:before {
+	content: "\e041";
+}
+.lineicon-bike:before {
+	content: "\e042";
+}
+.lineicon-wine:before {
+	content: "\e043";
+}
+.lineicon-hotairballoon:before {
+	content: "\e044";
+}
+.lineicon-globe:before {
+	content: "\e045";
+}
+.lineicon-genius:before {
+	content: "\e046";
+}
+.lineicon-map-pin:before {
+	content: "\e047";
+}
+.lineicon-dial:before {
+	content: "\e048";
+}
+.lineicon-chat:before {
+	content: "\e049";
+}
+.lineicon-heart:before {
+	content: "\e04a";
+}
+.lineicon-cloud:before {
+	content: "\e04b";
+}
+.lineicon-upload:before {
+	content: "\e04c";
+}
+.lineicon-download:before {
+	content: "\e04d";
+}
+.lineicon-target:before {
+	content: "\e04e";
+}
+.lineicon-hazardous:before {
+	content: "\e04f";
+}
+.lineicon-piechart:before {
+	content: "\e050";
+}
+.lineicon-speedometer:before {
+	content: "\e051";
+}
+.lineicon-global:before {
+	content: "\e052";
+}
+.lineicon-compass:before {
+	content: "\e053";
+}
+.lineicon-lifesaver:before {
+	content: "\e054";
+}
+.lineicon-clock:before {
+	content: "\e055";
+}
+.lineicon-aperture:before {
+	content: "\e056";
+}
+.lineicon-quote:before {
+	content: "\e057";
+}
+.lineicon-scope:before {
+	content: "\e058";
+}
+.lineicon-alarmclock:before {
+	content: "\e059";
+}
+.lineicon-refresh:before {
+	content: "\e05a";
+}
+.lineicon-happy:before {
+	content: "\e05b";
+}
+.lineicon-sad:before {
+	content: "\e05c";
+}
+.lineicon-facebook:before {
+	content: "\e05d";
+}
+.lineicon-twitter:before {
+	content: "\e05e";
+}
+.lineicon-googleplus:before {
+	content: "\e05f";
+}
+.lineicon-rss:before {
+	content: "\e060";
+}
+.lineicon-tumblr:before {
+	content: "\e061";
+}
+.lineicon-linkedin:before {
+	content: "\e062";
+}
+.lineicon-dribbble:before {
+	content: "\e063";
+}

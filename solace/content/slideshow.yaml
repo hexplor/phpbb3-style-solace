@@ -1,0 +1,18 @@
+- image: fullimage1.jpg
+  title: "Try. Something. New"
+  description: Nullam quis risus eget urna mollis ornare vel eu leo. Integer posuere erat a ante venenatis lorem anakis dapibus posuere velit aliquet.
+- image: fullimage2.jpg
+  title: "Another slide"
+  description: Nulla vitae elit libero, a pharetra augue.
+- image: fullimage3.jpg
+  title: "Mollis Fusce"
+  description: Nullam id dolor id nibh ultricies vehicula ut id elit.
+- image: fullimage4.jpg
+  title: "Consectetur Vestibulum"
+  description: Etiam porta sem malesuada magna mollis euismod.
+- image: fullimage5.jpg
+  title: "Condimentum Pellentesque"
+  description: Sed posuere consectetur est at lobortis.
+- image: fullimage6.jpg
+  title: "Tortor Purus"
+  description: Morbi leo risus, porta ac consectetur ac, vestibulum at eros..

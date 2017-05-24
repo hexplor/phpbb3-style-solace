@@ -1,0 +1,105 @@
+{% if saved_config %}
+	{% set current_preset = saved_config.colours %}
+{% else %}
+	{% set current_preset = config.defaults %}
+{% endif %}
+
+{% if switcher_preset_name %}
+	{% set current_preset = presets[switcher_preset_name] %}
+{% endif %}
+
+<div id="footer" class="contain-to-grid foundation-element" style="background-image: url({{ T_THEME_PATH }}/images/{{ current_preset.footer_image_background }});">
+	<div class="row">
+		<div class="large-4 columns">
+			<ul class="small-block-grid-2">
+				<li>
+					<div class="name">
+            {% if saved_config %}{% set config = saved_config %}{% endif %}
+              {% if config.logo %}
+                {% if config.logo.type == 'text' %}
+                  <h1><a href="{% if config.logo.link %}{{ config.logo.link }}{% else %}{{ U_INDEX }}{% endif %}">{{ config.logo.text }}</a></h1>
+                {% endif %}
+                {% if config.logo.type == 'image' %}
+                <a href="{% if config.logo.link %}{{ config.logo.link }}{% else %}{{ U_INDEX }}{% endif %}">
+                  <img src="{{ T_THEME_PATH }}/images/{{ config.logo.image }}" {% if config.logo.width or config.logo.height %}style="width: {{ config.logo.width }}; height: width: {{ config.logo.height }};{% endif %}" alt="Logo" />
+                </a>
+                {% endif %}
+              {% endif %}
+					</div>
+				</li>
+				<li>
+
+					<div class="social-icons">
+            {% if socialmenu %}
+              {% set menu = socialmenu %}
+            {% else %}
+              {% set menu = config.footer_social %}
+            {% endif %}
+
+						{% for item in menu %}
+							<a href="{{ item.url }}"><i class="{% if item.provider == 'lineicon' %}lineicon{% endif %}{% if item.provider == 'fontawesome' %}fa fa{% endif %}-{{ item.icon }}"></i></a>
+						{% endfor %}
+					</div>
+				</li>
+			</ul>
+			<p>{{ config.footer.description }}</p>
+		</div>
+		<div class="large-3 columns">
+			<h2>{% if saved_config.footer.contact_info_title %}{{ saved_config.footer.contact_info_title }}{% else %}{{ config.footer_contact.title }}{% endif %}</h2>
+			<p>
+        {% if saved_config.footer.contact_info_description %}{{ saved_config.footer.contact_info_description|replace({ '\n': '<br/>'  }) }}{% else %}
+				{% for item in config.footer_contact.content %}
+					{% if "@" in item.line %}<a href="mailto:{{ item.line }}">{{ item.line }}</a><br />{% else %}{{ item.line }} <br />{% endif %}
+				{% endfor %}
+        {% endif %}
+			</p>
+		</div>
+		<div class="large-2 columns">
+			<h2>{% if saved_config.footer.quick_menu_title %}{{ saved_config.footer.quick_menu_title }}{% else %}{{ config.footer_quickmenu.title }}{% endif %}</h2>
+			<ul class="no-bullet">
+        {% if quickmenu %}
+          {% set menu = quickmenu %}
+        {% else %}
+          {% set menu = config.footer_quickmenu.content %}
+        {% endif %}
+        {% for item in menu %}
+          <li><i class="fa fa-angle-right"></i> <a href="{{ item.url }}">{{ item.name }}</a></li>
+        {% endfor %}
+			</ul>
+		</div>
+		<div class="large-3 columns">
+			<h2>{% if saved_config.footer.subscribe_title %}{{ saved_config.footer.subscribe_title }}{% else %}{{ config.footer_subscribe.title }}{% endif %}</h2>
+			<p>{% if saved_config.footer.subscribe_description %}{{ saved_config.footer.subscribe_description }}{% else %}{{ config.footer_subscribe.content }}{% endif %}</p>
+			<form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" class="newsletter">
+				<input type="text" name="email" value="Email" onclick="if(this.value=='Email')this.value='';" onblur="if(this.value=='')this.value='Email';">
+				<input type="hidden" value="{% if saved_config.footer.feedburner %}{{ saved_config.footer.feedburner }}{% else %}{{ config.footer_subscribe.feedburner }}{% endif %}" name="uri">
+				<input type="hidden" name="loc" value="en_US">
+				<input type="submit" value="OK">
+			</form>
+		</div>
+	</div>
+
+	<div class="row separator">
+		<div class="large-12 columns">
+			<hr />
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-6 columns">
+			<ul class="inline-list text-left">
+        {% if copyrightmenu %}
+          {% set menu = copyrightmenu %}
+        {% else %}
+          {% set menu = config.footer_copyrightmenu %}
+        {% endif %}
+
+				{% for item in menu %}
+					<li>{% if not loop.first %}<span class="slash">/</span>{% endif %}<a href="{{ item.url }}">{{ item.name }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="large-6 columns ">
+			<p class="text-right">{% if saved_config.footer.copyright %}{{ saved_config.footer.copyright|raw }}{% else %}{{ config.footer_copyright.content }}{% endif %}</p>
+		</div>
+	</div>
+</div>

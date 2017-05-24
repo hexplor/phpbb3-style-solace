@@ -1,0 +1,99 @@
+#topbar #search {
+  margin-top: -9px;
+}
+#topbar #search fieldset {
+  position: relative;
+  height:  60px;
+}
+
+#topbar #search input {
+  outline: none;
+  cursor: pointer;
+}
+#topbar #search  input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+}
+#topbar #search  input::-webkit-search-decoration,
+#topbar #search  input::-webkit-search-cancel-button {
+  display: none;
+}
+
+
+#topbar #search input[type=search] {
+  background: rgba(255,255,255,0.2);
+  border: 0 none;
+  padding: 9px 10px 9px 32px;
+  width: 55px;
+  border-radius: 10em;
+  transition: all .5s;
+  -moz-box-sizing: content-box;
+}
+#topbar #search input[type=search]:focus {
+  width: 130px;
+  background-color: rgba(255,255,255,0.4);
+}
+#topbar .search-icon {
+  display: block;
+  line-height: 1;
+  position: absolute;
+  top: 23px;
+  right: 25px;
+  z-index: -1;
+  cursor: pointer;
+}
+@media only screen and (max-width: 40em) {
+  #topbar .search-icon {
+    top: 14px;
+    left: 10px;
+    z-index: 0;
+  }
+  #topbar #search input[type=search]:focus {
+    padding-left: 35px !important;
+  }
+}
+@media only screen and (max-width: 64em) and (min-width: 40.063em) {
+  #topbar .search-icon {
+    top: 14px;
+    left: 10px;
+    z-index: 0;
+  }
+  #topbar #search input[type=search]:focus {
+    padding-left: 35px !important;
+  }
+}
+@media only screen and (min-width: 58.75rem) {
+  #topbar .search-icon {
+    top: 23px;
+    right: 25px;
+    z-index: -1;
+  }
+}
+
+#topbar .search-icon:before {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#topbar #search input[type=search] {
+  width: 15px;
+  height: 15px;
+  padding-left: 10px;
+  color: transparent;
+  cursor: pointer;
+}
+#topbar #search input[type=search]:hover {
+  background-color: rgba(255,255,255,0.4);
+}
+#topbar #search input[type=search]:focus {
+  width: 130px;
+  padding-left: 15px;
+  background-color: rgba(255,255,255,0.4);
+  cursor: auto;
+}
+#topbar #search input:-moz-placeholder {
+  color: transparent;
+}
+#topbar #search input::-webkit-input-placeholder {
+  color: transparent;
+}

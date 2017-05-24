@@ -1,0 +1,3 @@
+devlom_configurator_controller:
+    path: /configurator/{name}
+    defaults: { _controller: devlom.configurator.controller:handle }

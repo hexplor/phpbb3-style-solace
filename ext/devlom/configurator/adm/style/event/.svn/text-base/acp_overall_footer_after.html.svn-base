@@ -1,0 +1,24 @@
+{% if MODE === 'modules' %}
+<script>
+$( document.body )
+  .ready(function() {
+    var n = $( "fieldset" ).length;
+    $( '#rt_modules_count' ).val(n - 1);
+  })
+
+$(document).ready(function(){
+  $(".deletebutton").click(function(){
+    if (!confirm("Are you sure you want to delete that module ?")){
+      return false;
+    }
+  });
+});
+
+$(function() {
+    var tooltips = $( "[title]" ).tooltip({
+      track: true
+    });
+  });
+
+</script>
+{% endif %}

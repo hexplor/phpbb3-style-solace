@@ -1,0 +1,51 @@
+{% if saved_config.general.font and saved_config.general.font != 'Default' %}
+<link href='https://fonts.googleapis.com/css?family={{ saved_config.general.font }}' rel='stylesheet' type='text/css'>
+<style media="screen">
+  body, h1, h2, h3, li, ul, a {
+    font-family: '{{ saved_config.general.font|replace({'+': ' '}) }}', sans-serif !important;
+  }
+</style>
+{% endif %}
+
+{% if saved_config.logo.font and saved_config.logo.font != 'Default' %}
+<link href='https://fonts.googleapis.com/css?family={{ saved_config.logo.font }}' rel='stylesheet' type='text/css'>
+<style media="screen">
+  #phpbb .name h1 {
+    font-family: '{{ saved_config.logo.font|replace({'+': ' '}) }}', sans-serif !important;
+  }
+</style>
+{% endif %}
+
+{% if saved_config.general.menu_font and saved_config.general.menu_font != 'Default' %}
+<link href='https://fonts.googleapis.com/css?family={{ saved_config.general.menu_font }}' rel='stylesheet' type='text/css'>
+<style media="screen">
+  #topbar .menu-bar li, #topbar .menu-bar li a {
+    font-family: '{{ saved_config.general.menu_font|replace({'+': ' '}) }}', sans-serif !important;
+  }
+</style>
+{% endif %}
+{% if saved_config.general.menu_fontsize %}
+<style media="screen">
+  #topbar .menu-bar li, #topbar .menu-bar li a {
+    font-size: {{ saved_config.general.menu_fontsize }} !important;
+  }
+</style>
+{% endif %}
+
+{% if saved_config.slideshow.title_font and saved_config.slideshow.title_font != 'Default' %}
+<link href='https://fonts.googleapis.com/css?family={{ saved_config.slideshow.title_font }}' rel='stylesheet' type='text/css'>
+<style media="screen">
+  #slideshow h1 {
+    font-family: '{{ saved_config.slideshow.title_font|replace({'+': ' '}) }}', sans-serif !important;
+  }
+</style>
+{% endif %}
+
+{% if saved_config.slideshow.description_font and saved_config.slideshow.description_font != 'Default' %}
+<link href='https://fonts.googleapis.com/css?family={{ saved_config.slideshow.description_font }}' rel='stylesheet' type='text/css'>
+<style media="screen">
+  #slideshow h2 {
+    font-family: '{{ saved_config.slideshow.description_font|replace({'+': ' '}) }}', sans-serif !important;
+  }
+</style>
+{% endif %}

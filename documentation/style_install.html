@@ -1,0 +1,57 @@
+<html lang="en" class=" js csstransforms3d">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="./inc/style.css" type="text/css" rel="stylesheet">
+  <link href="./inc/custom.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <h1>Installing Solace style</h1>
+
+  <div class="notices warning">
+    <p><strong>Solace</strong> style requires core <strong>prosilver</strong> style to be installed in your phpBB. It should be there by default so please don't uninstall it.</p>
+  </div>
+
+		<p>First, you will need to unpackage Solace on your computer. Solace is zipped into one ThemeForest package which contains following files and directories: </p>
+
+    <pre><code class="language-bash hljs">Documentation/
+    devlom.zip
+    solace.zip</code><span class="copy-to-clipboard" title="Copy to clipboard"></span></pre>
+
+    <p>Solace phpBB style is inside <strong>solace.zip</strong>.</p>
+
+		<p>In Windows, to unzip the style, simply double click <strong>solace.zip</strong> from the Windows Explorer view (for instance, if you downloaded the style to My Documents, you would open My Documents and double click the file). Proceed to click "Extract all files" under the address bar (Windows Vista, 7 and 8) or under the Folder Tasks menu (Windows XP) from within the Explorer window and follow the prompts.</p>
+		<p>On Mac, zipped files are automatically unzipped upon download by Safari (this setting can be disabled by unticking "Open safe files" in Safari's preferences) and can be accessed through the downloads list.</p>
+		<p>Make sure that your style includes all the required files as described below:</p>
+
+    <p><img alt="Style Structure" src="screenshots/style_structure.jpg"></p>
+
+		<h3>1. Upload to your board</h3>
+		<p>To upload files, open your favourite FTP client (such as FileZilla, CuteFTP, SmartFTP, etc - even some internet web browsers have this capability) and log in to your hosting account. Generally your publicly accessible files will be in an area named "<samp>public_html</samp>", "<samp>www</samp>" or similar.</p>
+		<p>Upload <strong>solace</strong> folder to the <code class="inline">styles/</code> directory inside your phpBB 3.1.x root directory. You can check if you have uploaded it correctly by looking at the location of the <samp>style.cfg</samp> file. It should be located at:</p>
+		<pre class="codesnippet">phpBB/styles/solace/style.cfg</pre>
+
+		<h3>2. Install</h3>
+		<p>Once the style has been uploaded, navigate in the board's <strong>Administration Control Panel</strong> to Customise -&gt; Install Styles. You should see your recently uploaded styles listed (assuming you uploaded it to the correct location and the style is valid), with an option to "<samp>Install style</samp>". Simply click it and the installation is complete!</p>
+
+    <p><img alt="Style Structure" src="screenshots/style_install.jpg"></p>
+
+    <div class="notices info">
+      <p>You may need to <strong>Deactivate</strong> prosilver if you don't see any changes.</p>
+    </div>
+
+		<hr>
+
+		<h2 class="title" id="a-updating">Updating Solace</h2>
+		<p>Solace can be updated without any prior steps. All you need to do is simply upload the style's files to the same location as the old style, and let the files be overwritten.</p>
+		<p>Finally, simply navigate to your board's ACP index, and click the button at "<samp>Purge the cache</samp>".</p>
+
+    <div class="notices warning">
+      <p>If you have made changes to the style files you are about to update, you will lose all your changes! So be sure to make a backup of your style's files before updating. After updating your style, you can reapply your changes.</p>
+    </div>
+
+		<hr>
+
+  <br />
+  <script src="./inc/iframeResizer.contentWindow.min.js" type="text/javascript" ></script>
+</body>
+</html>

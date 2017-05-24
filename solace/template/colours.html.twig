@@ -1,0 +1,1282 @@
+{% if saved_config %}
+	{% set current_preset = saved_config.colours %}
+	{% set current_config = saved_config %}
+{% else %}
+	{% set current_preset = config.defaults %}
+	{% set current_config = config %}
+{% endif %}
+
+{% if switcher_preset_name %}
+	{% set current_preset = presets[switcher_preset_name] %}
+{% endif %}
+
+{% set css %}
+<style media="screen">
+  {% if saved_config.general.fontsize %}
+      body {
+        font-size: {{ saved_config.general.fontsize }};
+      }
+  {% endif %}
+
+	html, body {
+		color: {{ current_preset.main_text_color }};
+		background-color: {{ current_preset.main_background }};
+	}
+
+	h1 {
+		color: {{ current_preset.main_background }};
+	}
+
+	h1 a {
+		color: {{ current_preset.main_background }};
+	}
+	h1 a:hover {
+		color: {{ current_preset.main_background }};
+		text-decoration: none;
+	}
+  h3, h2 {
+    color: {{ current_preset.headers_text_color }};
+  }
+  h3 a, h2 a {
+    color: {{ current_preset.headers_text_color }};
+  }
+  h3 a:hover, h2 a:hover {
+    text-decoration: none;
+  }
+	h3 span, h3 a span, h2 span, h2 a span {
+		color: {{ current_preset.accent }};
+	}
+  .birthday-list h3, .birthday-list h3 span {
+    color: {{ current_preset.headers_text_color }};
+  }
+
+	hr {
+		border-color: {{ current_preset.main_border_color }};
+		border-top-color: {{ current_preset.main_border_color }};
+	}
+
+	/* TopBar */
+	.top-bar, #topbar, #topbar.notvisible  {
+		background-color: transparent;
+		transition: all 0.2s ease-in;
+	}
+	#topbar.visible {
+		background-color: rgba(0, 3, 6, 0.65);
+	}
+	#topbar .top-bar-section ul li, #topbar .top-bar-section ul li a {
+		background: transparent;
+		font-size: 15px;
+	}
+	@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+		#topbar .top-bar.expanded, #topbar .top-bar.expanded .title-area {
+			background-color: rgba(0, 3, 6, 1);
+		}
+		#topbar {
+			padding-top: 0;
+		}
+	}
+	@media only screen and (max-width: 40em) {
+		#topbar .top-bar.expanded, #topbar .top-bar.expanded .title-area {
+			background-color: rgba(0, 3, 6, 1);
+		}
+		#topbar.sticky, #topbar.normal {
+			padding-top: 0;
+		}
+	}
+
+  #phpbb .name h1 {
+    font-size: {% if config.logo.fontsize %}{{ config.logo.fontsize }}{% else %}40px{% endif %};
+  }
+
+	/* MenuBar */
+	#topbar .menu-bar li, #topbar .menu-bar li a {
+		font-family: 'Lato', sans-serif;
+		text-transform: uppercase;
+		font-weight: 700;
+		text-decoration: none;
+	}
+	#topbar .menu-bar li a span, #topbar .menu-bar li  span {
+		border-bottom: 3px solid transparent;
+		padding-bottom: 10px;
+		transition: all 0.2s ease-in;
+	}
+	#topbar .menu-bar li a:hover span, #topbar .menu-bar li a.active span {
+		border-bottom: 3px solid {{ current_preset.accent }};
+		padding-bottom: 10px;
+	}
+	#topbar .menu-bar .dropdown li {
+		transition: all 0.2s ease-in;
+		background-color: rgba(0, 3, 6, 0.65);
+		border: 0 none;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	}
+	#topbar .menu-bar .dropdown li:hover {
+		background-color: rgba(0, 3, 6, 0.55);
+	}
+	#topbar .menu-bar .dropdown li a:hover {
+		color: {{ current_preset.accent }};
+	}
+	#topbar .menu-bar .dropdown {
+		border: 0 none;
+	}
+	#topbar .menu-bar .dropdown li a {
+		font-weight: 400;
+	}
+	#topbar .menu-bar .dropdown li.back a {
+		font-weight: 300;
+		color: {{ current_preset.accent }};
+	}
+
+	/* Slideshow */
+	#slideshow h1 {
+    font-size: {% if saved_config.slideshow.title_fontsize %}{{ saved_config.slideshow.title_fontsize }}{% else %}100px{% endif %};
+		font-family: 'Lato', sans-serif;
+		font-weight: 900;
+	}
+	#slideshow h2 {
+		font-family: 'Lato', sans-serif;
+		font-weight: 300;
+		color: rgba(255, 255, 255, 0.8);
+    {% if saved_config.slideshow.description_fontsize %}font-size: {{ saved_config.slideshow.description_fontsize }};{% endif %}
+	}
+
+	/* Footer  */
+	#footer i {
+		color: {{ current_preset.main_background }};
+	}
+	#footer .name h1 a {
+		color: {{ current_preset.main_background }};
+	}
+	#footer h2 {
+		color: {{ current_preset.main_background }};
+	}
+	#footer {
+		color: rgba(255, 255, 255, 0.5);
+	}
+	#footer a {
+		color: rgba(255, 255, 255, 0.5);
+	}
+	#footer ul i {
+		color: {{ current_preset.main_background }};
+	}
+	#footer input {
+		background: rgba(255, 255, 255, 0.3);
+		color: {{ current_preset.main_background }};
+	}
+	#footer hr {
+		border-color: rgba(255, 255, 255, 0.2);
+	}
+
+	/* Navbar */
+	.callout {
+		background-color: {{ current_preset.navbar_background }};
+		color: {{ current_preset.navbar_text_color }};
+
+	}
+	.callout .linklist {
+		margin-top: 20px;
+	}
+	.callout .navbar {
+		padding: 0;
+		margin: 0;
+	}
+	.callout .dropdown, .callout .dropdown a, .callout .dropdown a:hover {
+		color: {{ current_preset.main_text_color }};
+	}
+	.callout a, .callout a:hover {
+		color: {{ current_preset.navbar_text_color }};
+	}
+	.callout {
+		font-size: 15px;
+	}
+
+	/* Search box */
+	.search-box .inputbox,
+	.search-box .inputbox:hover,
+	.search-box .inputbox:focus,
+	.search-box .button:hover {
+		border-color: {{ current_preset.accent }};
+	}
+
+	.search-header {
+		box-shadow: 0 0 10px {{ current_preset.accent }};
+	}
+
+	/* Round cornered boxes and backgrounds */
+	.headerbar {
+		background-color: {{ current_preset.accent }};
+		color: {{ current_preset.main_background }};
+	}
+
+	.panel.bg3 {
+		background-color: {{ current_preset.accent2 }};
+	}
+
+	.post:target .content {
+		color: {{ current_preset.accent }};
+	}
+
+	.post:target h3 a {
+		color: {{ current_preset.contrast }};
+	}
+
+	table.zebra-list tr:nth-child(odd) td, ul.zebra-list li:nth-child(odd) {
+		background-color: {{ current_preset.accent2 }};
+	}
+
+	table.zebra-list tr:nth-child(even) td, ul.zebra-list li:nth-child(even) {
+		background-color: {{ current_preset.accent2 }};
+	}
+
+	.ucprowbg {
+		background-color: {{ current_preset.main_border_color }};
+	}
+
+	.fieldsbg {
+		background-color: {{ current_preset.accent2 }};
+	}
+
+	/* Horizontal lists */
+
+	ul.navlinks {
+		border-top-color: {{ current_preset.main_background }};
+	}
+
+	/* Table styles */
+	table.table1 thead th {
+		color: {{ current_preset.main_background }};
+    background-color: {{ current_preset.accent }};
+	}
+  table.table1 thead th a {
+    color: {{ current_preset.main_background }};
+  }
+  table.table1 thead  tr {
+    border: 1px solid {{ current_preset.accent }};
+  }
+	table.table1 tbody tr {
+		border-color: {{ current_preset.main_border_color }};
+	}
+
+	table.table1 tbody tr:hover, table.table1 tbody tr.hover {
+		background-color: {{ current_preset.accent2 }};
+		color: {{ current_preset.contrast }};
+	}
+
+	table.table1 td {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	table.table1 tbody td {
+		border-top-color: {{ current_preset.main_background }};
+	}
+
+	table.table1 tbody th {
+		border-bottom-color: {{ current_preset.contrast }};
+		color: {{ current_preset.main_text_color }};
+		background-color: {{ current_preset.main_background }};
+	}
+
+	table.info tbody th {
+		color: {{ current_preset.contrast }};
+	}
+
+	/* Misc layout styles  */
+	dl.details dt {
+		color: {{ current_preset.contrast }};
+	}
+
+	dl.details dd {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	.sep {
+		color: {{ current_preset.accent }};
+	}
+
+	/* Pagination  */
+
+	.pagination li a {
+		background-color: {{ current_preset.main_background }};
+		border-color: {{ current_preset.main_border_color }};
+		color: {{ current_preset.main_text_color }};
+	}
+
+	.pagination li.ellipsis span {
+		background-color: transparent;
+		color:	{{ current_preset.contrast }};
+	}
+
+	.pagination li.active span {
+		background-color: {{ current_preset.accent }};
+		border-color: {{ current_preset.accent }};
+		color: {{ current_preset.main_background }};
+	}
+
+	.pagination li a:hover, .pagination .dropdown-visible a.dropdown-trigger, .nojs .pagination .dropdown-container:hover a.dropdown-trigger {
+		background-color: {{ current_preset.accent_light }};
+		border-color: {{ current_preset.accent_light }};
+		color: {{ current_preset.main_background }};
+	}
+
+	.pagination li.next a:before, .pagination li.previous a:before, .pagination li.page-jump a:before {
+    content: "\f0c5";
+    padding: 0 5px;
+	}
+
+	/* Pagination in viewforum for multipage topics */
+	.row .pagination:before {
+    content: "\f0c5";
+    color: {{ current_preset.main_text_color }};
+    padding-right: 5px;
+	}
+
+	/* Miscellaneous styles */
+
+	.copyright {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	.error {
+		color: {{ current_preset.error }};
+	}
+
+	div.rules {
+		background-color: {{ current_preset.accent_light }};
+		color: {{ current_preset.main_background }};
+	}
+
+	p.post-notice {
+		background-color: {{ current_preset.accent_light }};
+		background-image: none;
+	}
+
+	p.post-notice.deleted:before {
+		background-image: url("{{ T_THEME_PATH }}/images/icon_topic_deleted.png");
+	}
+
+	p.post-notice.unapproved:before {
+		background-image: url("{{ T_THEME_PATH }}/images/icon_topic_unapproved.gif");
+	}
+
+	p.post-notice.reported:before, p.post-notice.error:before {
+		background-image: url("{{ T_THEME_PATH }}/images/icon_topic_reported.gif");
+	}
+  p.post-notice.deleted a, p.post-notice.reported a, p.post-notice.unapproved a {
+    color: {{ current_preset.main_background }};
+  }
+
+	/* Colours and backgrounds for links.css  */
+
+	a { color: {{ current_preset.accent }}; transition: color 0.5s ease-in-out;}
+	a:hover	{ color: {{ current_preset.accent_light }}; }
+
+	/* Links on gradient backgrounds */
+	.forumbg .header a, .forabg .header a, th a {
+		color: {{ current_preset.headers_text_color }};
+	}
+
+	.forumbg .header a:hover, .forabg .header a:hover, th a:hover {
+		color: {{ current_preset.accent_light }};
+	}
+
+	/* Notification mark read link */
+	.dropdown-extended a.mark_read {
+		background-color: {{ current_preset.headers_text_color }};
+	}
+
+	/* Post body links */
+	.postlink {
+		border-bottom-color: {{ current_preset.accent_light }};
+		color: {{ current_preset.accent_light }};
+	}
+
+	.postlink:visited {
+		border-bottom-color: {{ current_preset.accent_light }};
+		color: {{ current_preset.accent_light }};
+	}
+
+	.postlink:hover {
+		background-color: {{ current_preset.accent2 }};
+		color: {{ current_preset.accent }};
+	}
+
+	.signature a, .signature a:hover {
+		background-color: transparent;
+	}
+
+	/* Back to top of page */
+  a.top:before {
+    content: "\f139";
+    right: 10px;
+    bottom: 10px;
+  }
+
+  a.top2:before {
+    content: "\f139";
+  }
+
+	/* Arrow links  */
+	a.arrow-up:before			{ content: "\f062"; }
+	a.arrow-down:before		{ content: "\f063"; }
+	a.arrow-left:before, .pagination li.previous a:before		{ content: "\f060"; }
+	a.arrow-right:before, .pagination li.next a:before		{ content: "\f061"; }
+
+	a.arrow-up:hover {
+		background-color: transparent;
+	}
+
+	a.arrow-left:hover {
+		color: {{ current_preset.accent_light }};
+	}
+
+	a.arrow-right:hover {
+		color: {{ current_preset.accent_light }};
+	}
+
+	/* Colours and backgrounds for content.css  */
+	ul.topiclist li {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	ul.topiclist dd {
+		border-left-color: {{ current_preset.main_background }};
+	}
+
+	.rtl ul.topiclist dd {
+		border-right-color: {{ current_preset.main_background }};
+		border-left-color: transparent;
+	}
+
+	li.row strong {
+		color: {{ current_preset.contrast }};
+	}
+
+	li.header dt, li.header dd {
+		color: {{ current_preset.headers_text_color }};
+	}
+
+	/* Post body styles */
+	.postbody {
+		color: {{ current_preset.main_text_color }};
+	}
+  .post {
+    border: 1px solid {{ current_preset.main_border_color }};
+  }
+  #topicreview .post {
+    background: {{ current_preset.main_background }};
+  }
+
+
+	/* Content container styles */
+	.content {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	.content h2, .panel h2 {
+		color: {{ current_preset.accent }};
+		border-bottom-color:  {{ current_preset.main_border_color }};
+	}
+
+	dl.faq dt {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	.posthilit {
+		background-color: {{ current_preset.accent2 }};
+		color: {{ current_preset.error }};
+	}
+
+	/* Post signature */
+	.signature {
+		border-top-color: {{ current_preset.main_border_color }};
+	}
+
+	/* Post noticies */
+	.notice {
+		border-top-color:  {{ current_preset.main_border_color }};
+	}
+
+	/* BB Code styles */
+	/* Quote block */
+	blockquote {
+		background-color: {{ current_preset.accent2 }};
+		border-color:{{ current_preset.main_border_color }};
+	}
+  blockquote:before {
+    content: "\f10e";
+  }
+	.rtl blockquote {
+		content: "\f10d";
+	}
+
+	blockquote blockquote {
+		/* Nested quotes */
+		background-color:{{ current_preset.accent2 }};
+	}
+
+	blockquote blockquote blockquote {
+		/* Nested quotes */
+		background-color: {{ current_preset.accent2 }};
+	}
+
+	/* Code block */
+	.codebox {
+		background-color: {{ current_preset.main_background }};
+		border-color: {{ current_preset.main_border_color }};
+	}
+
+	.codebox p {
+		border-bottom-color:  {{ current_preset.main_border_color }};
+	}
+
+	.codebox code {
+		color: {{ current_preset.code }};
+	}
+
+	.syntaxbg		{ color: {{ current_preset.main_background }}; }
+	.syntaxcomment	{ color: #FF8000; }
+	.syntaxdefault	{ color: {{ current_preset.contrast }}0BB; }
+	.syntaxhtml		{ color: {{ current_preset.contrast }}; }
+	.syntaxkeyword	{ color: #007700; }
+	.syntaxstring	{ color: #DD0000; }
+
+	/* Attachments */
+	.attachbox {
+		background-color: {{ current_preset.main_background }};
+		border-color:  {{ current_preset.main_border_color }};
+	}
+
+	.pm-message .attachbox {
+		background-color: {{ current_preset.main_background }};
+	}
+
+	.attachbox dd {
+		border-top-color: {{ current_preset.main_border_color }};
+	}
+
+	.attachbox p {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	.attachbox p.stats {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	.attach-image img {
+		border-color: {{ current_preset.main_border_color }};
+	}
+
+	/* Inline image thumbnails */
+
+	dl.file dd {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	dl.thumbnail img {
+		border-color: {{ current_preset.main_text_color }};
+		background-color: {{ current_preset.main_background }};
+	}
+
+	dl.thumbnail dd {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	dl.thumbnail dt a:hover {
+		background-color: {{ current_preset.accent2 }};
+	}
+
+	dl.thumbnail dt a:hover img {
+		border-color: {{ current_preset.accent_light }};
+	}
+
+	/* Post poll styles */
+
+	fieldset.polls dl {
+		border-top-color: {{ current_preset.main_border_color }};
+		color: {{ current_preset.main_text_color }};
+	}
+
+	fieldset.polls dl.voted {
+		color: {{ current_preset.contrast }};
+	}
+
+	fieldset.polls dd div {
+		color: {{ current_preset.main_background }};
+	}
+
+	.rtl .pollbar1, .rtl .pollbar2, .rtl .pollbar3, .rtl .pollbar4, .rtl .pollbar5 {
+		border-right-color: transparent;
+	}
+
+	.pollbar1 {
+		background-color: {{ current_preset.accent_light }};
+		border-bottom-color: {{ current_preset.accent }};
+		border-right-color: {{ current_preset.accent }};
+	}
+
+	.rtl .pollbar1 {
+		border-left-color: {{ current_preset.accent }};
+	}
+
+	.pollbar2 {
+		background-color: {{ current_preset.accent_light }};
+		border-bottom-color: {{ current_preset.accent }};
+		border-right-color: {{ current_preset.accent }};
+	}
+
+	.rtl .pollbar2 {
+		border-left-color: {{ current_preset.accent }};
+	}
+
+	.pollbar3 {
+		background-color: {{ current_preset.accent }};
+		border-bottom-color: {{ current_preset.accent_light }};
+		border-right-color: {{ current_preset.accent_light }};
+	}
+
+	.rtl .pollbar3 {
+		border-left-color: {{ current_preset.accent_light }};
+	}
+
+	.pollbar4 {
+		background-color: {{ current_preset.accent }};
+		border-bottom-color: {{ current_preset.accent_light }};
+		border-right-color: {{ current_preset.accent_light }};
+	}
+
+	.rtl .pollbar4 {
+		border-left-color: {{ current_preset.accent_light }};
+	}
+
+	.pollbar5 {
+		background-color: {{ current_preset.accent }};
+		border-bottom-color: {{ current_preset.accent_light }};
+		border-right-color: {{ current_preset.accent_light }};
+	}
+
+	.rtl .pollbar5 {
+		border-left-color: {{ current_preset.accent_light }};
+	}
+
+	/* Poster profile block */
+	.postprofile {
+		color: {{ current_preset.main_text_color }};
+		border-color: {{ current_preset.main_background }};
+	}
+
+	.pm .postprofile {
+		border-color: {{ current_preset.main_border_color }};
+	}
+
+	.postprofile strong {
+		color: {{ current_preset.contrast }};
+	}
+	dd.profile-warnings {
+		color: {{ current_preset.error }};
+	}
+
+	/* Colours and backgrounds for buttons.css */
+	.button {
+		background: {{ current_preset.accent }};
+		color: {{ current_preset.main_background }};
+	}
+  .post-buttons .icon-button {
+      background: {{ current_preset.accent2 }};
+      color: {{ current_preset.main_text_color }};
+  }
+
+	.dropdown-select {
+		color: {{ current_preset.main_background }};
+	}
+
+	.button:hover, .dropdown-visible .dropdown-select, .nojs .dropdown-container:hover .dropdown-select {
+		border-color: {{ current_preset.accent }};
+		background: {{ current_preset.main_background }};
+		color: {{ current_preset.accent }};
+	}
+
+	.dropdown-select:hover	{ border-color: {{ current_preset.accent }}; }
+
+	.dropdown-visible .dropdown-select, .dropdown-visible .dropdown-select:hover, .nojs .dropdown-container:hover .dropdown-select {
+		border-color: {{ current_preset.main_border_color }};
+		color: {{ current_preset.accent }};
+	}
+
+	.contact-icons a		{ border-color: {{ current_preset.main_border_color }}; }
+	.contact-icons a:hover	{ background-color: {{ current_preset.accent2 }}; }
+
+	.small-icon:before, .imageset:before, .file-status:before, .mark_read:before, .top2:before, .icon-button:before, ul.linklist li.responsive-menu a.responsive-menu-link:before, #topbar .search-icon:before, ul.linklist li.responsive-menu a.presets-menu-link:before {
+		font-family: 'et-line';
+		font-style: normal;
+		font-weight: normal;
+		display: block;
+		-webkit-font-smoothing: antialiased;
+		position: absolute;
+	}
+	.button.icon-button:before {
+		font-size: initial !important;
+		position: relative;
+		font-weight: bold;
+		margin-top: 1px;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	.dropdown-select:after, .pagination li.next a:before, .pagination li.previous a:before, .pagination li.page-jump a:before, .row .pagination:before, a.arrow-up:before, a.arrow-down:before, a.arrow-left:before, a.arrow-right:before  {
+		font-family: 'FontAwesome';
+	}
+	.small-icon:before, ul.linklist li.responsive-menu a.responsive-menu-link:before, ul.linklist li.responsive-menu a.presets-menu-link:before {
+		font-weight: bold;
+	}
+  #topbar #search input[type=search]:focus {
+    color: {{ current_preset.main_background }};
+  }
+  #topbar .search-icon:before {
+      color: {{ current_preset.main_background }};
+  }
+
+	/* Icon images  */
+	.icon-acp:before {content: "\e034";}
+	.icon-bookmark:before {content: "\e01e";}
+	.icon-bump:before {content: "\e059";}
+	.icon-contact:before {content: "\e028";}
+	.icon-delete-cookies:before {content: "\e027";}
+	.icon-download:before {content: "\e04d";}
+	.icon-faq:before {content: "\e026";}
+	.icon-home:before {content: "\e047";}
+	.icon-logout:before {content: "\e03e";}
+	.icon-mark:before {content: "\e024";}
+	.icon-mcp:before {content: "\e02b";}
+	.icon-members:before {content: "\e041";}
+	.icon-notification:before {content: "\e021";}
+	.icon-pages:before {content: "\e006";}
+	.icon-pm:before {content: "\e028";}
+	.icon-print:before {content: "\e013";}
+	.icon-profile:before {content: "\e040";}
+	.icon-register:before {content: "\e02c";}
+	.icon-search:before, .responsive-search a:before, #topbar .search-icon:before {content: "\e037";}
+	.icon-search-active:before, .search-adv-icon:before {content: "\e037";}
+	.icon-search-new:before {content: "\e037";}
+	.icon-search-self:before {content: "\e037";}
+	.icon-search-unanswered:before {content: "\e037";}
+	.icon-search-unread:before {content: "\e037";}
+	.icon-sendemail:before {content: "\e028";}
+	.icon-subscribe:before {content: "\e04e";}
+	.icon-team:before {content: "\e040";}
+	.icon-ucp:before {content: "\e041";}
+	.icon-unsubscribe:before {content: "\e050";}
+  ul.linklist li.responsive-menu a.responsive-menu-link:before {content: "\e031";left: 0;}
+  ul.linklist li.responsive-menu a.presets-menu-link:before {content: "\e056";left: 0;}
+
+	/* Profile & navigation icons */
+	.contact-icon	{ background-image: url("{{ T_THEME_PATH }}/images/icons_contact.png"); }
+
+	.contact-icon:before {content: "\e022";}
+	.dropdown-select:after {content: "\f107";}
+
+	.button.icon-button.search-icon:before {content: "\e037";}
+	.button.icon-button.locked-icon:before {content: "\e020";}
+	.button.icon-button.post-icon:before, .button.icon-button.newpm-icon:before, .button.icon-button.forwardpm-icon:before {content: "\e01c";}
+	.button.icon-button.reply-icon:before, .button.icon-button.pmreply-icon:before {  content: "\e04e";}
+	.button.icon-button.tools-icon:before {content: "\e033";}
+	.button.icon-button.modtools-icon:before {content: "\e034";}
+	.button.icon-button.search-adv-icon:before {content: "\e007";}
+	.button.icon-button.quote-icon:before {content: "\e057";}
+	.button.icon-button.info-icon:before {content: "\e029";}
+	.button.icon-button.report-icon:before {content: "\e03d";}
+	.button.icon-button.delete-icon:before {content: "\e027";}
+	.button.icon-button.edit-icon:before {content: "\e032";}
+	.button.icon-button.warn-icon:before {content: "\e04f";}
+
+	/* Forum icons & Topic icons */
+	dl.icon:before {
+		{% if current_config.icons.provider == 'lineicons' %}
+			font-family: 'et-line';
+			font-weight: bold;
+		{% else %}
+			font-family: 'FontAwesome';
+			font-weight: normal;
+		{% endif %}
+		font-style: normal;
+		line-height: 1;
+		display: block;
+		-webkit-font-smoothing: antialiased;
+		position: absolute;
+		font-size: 25px;
+		text-align: center;
+		background-color: {{ current_preset.forumicon_background }};
+    border: 1px solid {{ current_preset.forumicon_color }};
+		color: {{ current_preset.forumicon_color }};
+		border-radius: 100%;
+		width: 60px;
+		height: 60px;
+		padding-top: 16px;
+		margin-left: 2px;
+	}
+
+	.global_read:before                           {content: "\{{ current_config.icons.global_read }}";}
+	.global_read_mine:before                      {content: "\{{ current_config.icons.global_read_mine }}";}
+	.global_read_locked:before                    {content: "\{{ current_config.icons.global_read_locked }}";}
+	.global_read_locked_mine:before               {content: "\{{ current_config.icons.global_read_locked_mine }}";}
+	.global_unread:before                         {content: "\{{ current_config.icons.global_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important;}
+	.global_unread_mine:before                    {content: "\{{ current_config.icons.global_unread_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important;}
+	.global_unread_locked:before                  {content: "\{{ current_config.icons.global_unread_locked }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important;}
+	.global_unread_locked_mine:before             {content: "\{{ current_config.icons.global_unread_locked_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+
+	.announce_read:before                         {content: "\{{ current_config.icons.announce_read }}";}
+	.announce_read_mine:before                    {content: "\{{ current_config.icons.announce_read_mine }}";}
+	.announce_read_locked:before                  {content: "\{{ current_config.icons.announce_read_locked }}";}
+	.announce_read_locked_mine:before             {content: "\{{ current_config.icons.announce_read_locked_mine }}";}
+	.announce_unread:before                       {content: "\{{ current_config.icons.announce_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	.announce_unread_mine:before                  {content: "\{{ current_config.icons.announce_unread_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	.announce_unread_locked:before                {content: "\{{ current_config.icons.announce_unread_locked }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	.announce_unread_locked_mine:before           {content: "\{{ current_config.icons.announce_unread_locked_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+
+	.forum_link:before                            {content: "\{{ current_config.icons.forum_link }}";}
+	.forum_read:before                            {content: "\{{ current_config.icons.forum_read }}";}
+	.forum_read_locked:before                     {content: "\{{ current_config.icons.forum_read_locked }}";}
+	.forum_read_subforum:before                   {content: "\{{ current_config.icons.forum_read_subforum }}";}
+	.forum_unread:before                          {content: "\{{ current_config.icons.forum_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	.forum_unread_locked:before                   {content: "\{{ current_config.icons.forum_unread_locked }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	.forum_unread_subforum:before                 {content: "\{{ current_config.icons.forum_unread_subforum }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	.sticky_read:before                           {content: "\{{ current_config.icons.sticky_read }}";}
+	.sticky_read_mine:before                      {content: "\{{ current_config.icons.sticky_read_mine }}";}
+	.sticky_read_locked:before                    {content: "\{{ current_config.icons.sticky_read_locked }}";}
+	.sticky_read_locked_mine:before               {content: "\{{ current_config.icons.sticky_read_locked_mine }}";}
+	.sticky_unread:before                         {content: "\{{ current_config.icons.sticky_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	.sticky_unread_mine:before                    {content: "\{{ current_config.icons.sticky_unread_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	.sticky_unread_locked:before                  {content: "\{{ current_config.icons.sticky_unread_locked }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	.sticky_unread_locked_mine:before             {content: "\{{ current_config.icons.sticky_unread_locked_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+
+	.topic_moved:before                           {content: "\{{ current_config.icons.topic_moved }}";}
+	.topic_read:before                            {content: "\{{ current_config.icons.topic_read }}";}
+	.topic_read_mine:before                       {content: "\{{ current_config.icons.topic_read_mine }}";}
+	.topic_read_hot:before                        {content: "\{{ current_config.icons.topic_read_hot }}";}
+	.topic_read_hot_mine:before                   {content: "\{{ current_config.icons.topic_read_hot_mine }}";}
+	.topic_read_locked:before                     {content: "\{{ current_config.icons.topic_read_locked }}";}
+	.topic_read_locked_mine:before                {content: "\{{ current_config.icons.topic_read_locked_mine }}";}
+	.topic_unread:before                          {content: "\{{ current_config.icons.topic_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
+	.topic_unread_mine:before                     {content: "\{{ current_config.icons.topic_unread_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
+	.topic_unread_hot:before                      {content: "\{{ current_config.icons.topic_unread_hot }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
+	.topic_unread_hot_mine:before                 {content: "\{{ current_config.icons.topic_unread_hot_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
+	.topic_unread_locked:before                   {content: "\{{ current_config.icons.topic_unread_locked }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
+	.topic_unread_locked_mine:before              {content: "\{{ current_config.icons.topic_unread_locked_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
+
+	.pm_read:before                               {content: "\{{ current_config.icons.pm_read }}";}
+	.pm_unread:before                             {content: "\{{ current_config.icons.pm_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
+
+  /* Imageset */
+  span.imageset:before, ul.topiclist li.row dt a.subforum:before, .online:before {
+    font-family: FontAwesome;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    margin-top: -5px;
+    margin-left: -10px;
+  }
+  a.top:before, a.top2:before, blockquote:before {
+    font-family: FontAwesome;
+    position: absolute;
+    display: block;
+  }
+
+  .imageset.subforum_read:before, ul.topiclist li.row dt a.subforum.read:before {content: "\f07b";}
+  .imageset.subforum_unread:before, ul.topiclist li.row dt a.subforum.unread:before {content: "\f07c";}
+  .imageset.pm_read:before, .imageset.pm-icon:before{content: "\f003";}
+  .imageset.pm_unread:before{content: "\f0e0";}
+  .imageset.icon_back_top:before{content: "\f106";}
+  .imageset.phpbb_aol-icon:before,.imageset.icon_contact_aim:before{content: "\f0ac";}
+  .imageset.icon_contact_email:before,.imageset.email-icon:before	{content: "\f0e0";}
+  .imageset.icon_contact_icq:before,.imageset.phpbb_icq-icon:before{content: "\f075";}
+  .imageset.icon_contact_jabber:before, .imageset.jabber-icon:before{content: "\f0eb";}
+  .imageset.phpbb_wlm-icon:before,.imageset.icon_contact_msnm:before{content: "\f17a";}
+  .imageset.icon_contact_www:before,.imageset.phpbb_website-icon:before{content: "\f0ac";}
+  .imageset.icon_contact_yahoo:before,.imageset.phpbb_yahoo-icon:before{content: "\f19e";}
+  .imageset.phpbb_youtube-icon:before{content: "\f167";}
+  .imageset.phpbb_facebook-icon:before{content: "\f09a";}
+  .imageset.phpbb_googleplus-icon:before{content: "\f0d5";}
+  .imageset.phpbb_skype-icon:before{content: "\f17e";}
+  .imageset.phpbb_twitter-icon:before{content: "\f099";}
+  .imageset.icon_post_delete:before{content: "\f00d";}
+  .imageset.icon_post_info:before{content: "\f129";}
+  .imageset.icon_post_report:before{content: "\f071";}
+  .imageset.icon_post_target:before{content: "\f15b";margin-left: -17px;}
+  .imageset.icon_post_target_unread:before{content: "\f15b";}
+  .imageset.icon_topic_attach:before{content: "\f0c6";}
+  .imageset.icon_topic_latest:before{content: "\f016";}
+  .imageset.icon_topic_newest:before{content: "\f15b";}
+  .imageset.icon_topic_reported:before{content: "\f071";}
+  .imageset.icon_topic_deleted:before{content: "\f00d";}
+  .imageset.icon_topic_unapproved:before{content: "\f05e";}
+  .imageset.icon_topic_poll:before{content: "\f080";}
+  .imageset.icon_user_warn:before{content: "\f071";}
+  .imageset.icon_contact:before{content: "\f086";}
+  .imageset.icon_user_online:before{content: "\f097";}
+  .online:before {content: "\f21d";font-size: 24px;font-weight: normal;right: 30px;top: 25px;color: {{ current_preset.accent }};
+		@media only screen and (max-width: 767px), only screen and (max-device-width: 767px) {
+			margin-top: 15px;right: 9px;font-size: 15px;
+		}}
+
+	/* Main CP box */
+
+	.panel-container h3, .panel-container hr, #cp-menu hr {
+		border-color: {{ current_preset.main_border_color }};
+	}
+
+	.panel-container .panel li.header dd, .panel-container .panel li.header dt {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	#cp-main .pm-message {
+		border-color: {{ current_preset.main_border_color }};
+		background-color: {{ current_preset.main_background }};
+	}
+
+	/* CP tabbed menu */
+	#tabs .tab > a {
+    color: {{ current_preset.main_text_color }};
+    background-color: transparent;
+    transition: background-color 0.2s ease-in;
+	}
+
+	#tabs .tab > a:hover {
+		background: {{ current_preset.accent2 }};
+		color: {{ current_preset.main_text_color }};
+	}
+
+	#tabs .activetab > a,
+	#tabs .activetab > a:hover {
+	background: {{ current_preset.accent2 }};
+  color: {{ current_preset.main_text_color }};
+	}
+
+	#tabs .activetab > a:hover {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	/* Mini tabbed menu used in MCP */
+	#minitabs .tab > a {
+		background-color: transparent;
+	}
+
+	#minitabs .activetab > a,
+	#minitabs .activetab > a:hover {
+		background-color: {{ current_preset.main_background }};
+		color: {{ current_preset.main_text_color }};
+	}
+
+	/* Responsive tabs */
+	.responsive-tab .responsive-tab-link:before {
+		border-color: {{ current_preset.main_text_color }};
+	}
+
+	.responsive-tab .responsive-tab-link:hover:before {
+		border-color: {{ current_preset.accent_light }};
+	}
+
+	/* UCP navigation menu */
+
+	/* Link styles for the sub-section links */
+	#navigation a {
+		color: {{ current_preset.main_text_color }};
+    background-color: transparent;
+    transition: background-color 0.2 ease-in;
+	}
+
+	#navigation a:hover {
+    background: {{ current_preset.accent2 }};
+		color: {{ current_preset.accent }};
+	}
+
+	#navigation #active-subsection a {
+		background: {{ current_preset.main_background }};
+		color: {{ current_preset.main_text_color }};
+	}
+
+	#navigation #active-subsection a:hover {
+		color: {{ current_preset.accent_light }};
+	}
+
+	@media only screen and (max-width: 900px), only screen and (max-device-width: 900px)
+	{
+		#navigation a, .rtl #navigation a {
+			background: rgba(255, 255, 255, 0.3);
+		}
+	}
+
+	/* Preferences pane layout */
+	.panel-container h2 {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	.panel-container .panel {
+		background-color: {{ current_preset.main_background }};
+	}
+
+	#cp-main .pm {
+		background-color: {{ current_preset.main_background }};
+	}
+  #cp-main h2 a span {
+    color: {{ current_preset.main_text_color }} !important;
+  }
+
+	/* Friends list */
+	.cp-mini {
+		background-color: {{ current_preset.accent2 }};
+	}
+
+	dl.mini dt {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	/* PM Styles */
+	/* PM Message history */
+	.current {
+		color: {{ current_preset.contrast }} !important;
+	}
+
+	/* PM marking colours */
+	.pmlist li.pm_message_reported_colour, .pm_message_reported_colour {
+		border-left-color: {{ current_preset.error }};
+		border-right-color: {{ current_preset.error }};
+	}
+
+	.pmlist li.pm_marked_colour, .pm_marked_colour {
+		border-color: {{ current_preset.accent }};
+	}
+
+	.pmlist li.pm_replied_colour, .pm_replied_colour {
+		border-color: {{ current_preset.main_border_color }};
+	}
+
+	.pmlist li.pm_friend_colour, .pm_friend_colour {
+		border-color: {{ current_preset.accent_light }};
+	}
+
+	.pmlist li.pm_foe_colour, .pm_foe_colour {
+		border-color: {{ current_preset.contrast }};
+	}
+
+	/* Avatar gallery */
+	#gallery label {
+		background: {{ current_preset.main_background }};
+		border-color: {{ current_preset.main_border_color }};
+	}
+
+	#gallery label:hover {
+		background-color: {{ current_preset.accent2 }};
+	}
+
+	/* Colours and backgrounds for forms.css  */
+	/* General form styles */
+	select {
+		border-color: {{ current_preset.main_border_color }};
+		background-color: {{ current_preset.main_background }};
+		color: {{ current_preset.main_text_color }};
+	}
+
+	label {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	option.disabled-option {
+		color: graytext;
+	}
+
+	/* Definition list layout for forms  */
+	dd label {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	fieldset.fields1 {
+		background-color: transparent;
+	}
+
+	/* Hover effects */
+	fieldset dl:hover dt label {
+		color: {{ current_preset.contrast }};
+	}
+
+	fieldset.fields2 dl:hover dt label {
+		color: inherit;
+	}
+
+	/* Quick-login on index page */
+	fieldset.quick-login input.inputbox {
+		background-color: {{ current_preset.main_background }};
+	}
+
+	/* Posting page styles */
+
+	#message-box textarea {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	#message-box textarea.drag-n-drop {
+		outline-color: rgba(102, 102, 102, 0.5);
+	}
+
+	#message-box textarea.drag-n-drop-highlight {
+		outline-color: {{ current_preset.accent_light }};
+	}
+
+	/* Input field styles */
+	.inputbox {
+		background-color: {{ current_preset.main_background }};
+		border-color: {{ current_preset.main_border_color }};
+		color: {{ current_preset.main_text_color }};
+	}
+
+	.inputbox:-moz-placeholder {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	.inputbox::-webkit-input-placeholder {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	.inputbox:hover {
+		border-color: {{ current_preset.accent_light }};
+	}
+
+	.inputbox:focus {
+		border-color: {{ current_preset.accent_light }};
+		color: {{ current_preset.accent }};
+	}
+
+	.inputbox:focus:-moz-placeholder {
+		color: transparent;
+	}
+
+	.inputbox:focus::-webkit-input-placeholder {
+		color: transparent;
+	}
+
+	/* Form button styles  */
+	a.button1, input.button1, input.button3, a.button2, input.button2 {
+    background: {{ current_preset.accent }};
+    color: {{ current_preset.main_background }};
+    transition: background 0.5s ease-out;
+	}
+
+	a.button1, input.button1 {
+    background: {{ current_preset.accent }};
+    color: {{ current_preset.main_background }};
+	}
+
+	input.button3 {
+		background-image: none;
+	}
+
+	/* Hover states */
+	a.button1:hover, input.button1:hover, a.button2:hover, input.button2:hover, input.button3:hover {
+    border-color: {{ current_preset.accent }};
+    background: {{ current_preset.main_background }};
+    color: {{ current_preset.accent }};
+	}
+
+	/* Focus states */
+	input.button1:focus, input.button2:focus, input.button3:focus {
+    border-color: {{ current_preset.accent }};
+    background: {{ current_preset.main_background }};
+    color: {{ current_preset.accent }};
+	}
+
+	input.disabled {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	/* jQuery popups  */
+	.phpbb_alert {
+		background-color: {{ current_preset.main_background }};
+		border-color: {{ current_preset.main_border_color }};
+	}
+	.phpbb_alert .alert_close {
+		background-image: url("{{ T_THEME_PATH }}/images/alert_close.png");
+	}
+	#darken {
+		background-color: {{ current_preset.contrast }};
+	}
+
+	#loading_indicator {
+		background-color: {{ current_preset.contrast }};
+		background-image: url("{{ T_THEME_PATH }}/images/loading.gif");
+	}
+
+	.dropdown-extended ul li {
+		border-top-color: {{ current_preset.main_border_color }};
+	}
+
+	.dropdown-extended ul li:hover {
+		color: {{ current_preset.contrast }};
+	}
+
+	.dropdown-extended .header, .dropdown-extended .footer {
+		border-bottom: 1px solid {{ current_preset.main_border_color }};
+    border-color:  {{ current_preset.main_border_color }};
+		color: {{ current_preset.contrast }};
+	}
+
+	.dropdown-extended .footer {
+		border-top-style: solid;
+		border-top-width: 1px;
+	}
+
+	.dropdown-extended .header {
+		background: {{ current_preset.main_background }};
+
+	}
+
+	.dropdown .pointer {
+		border-color: {{ current_preset.main_border_color }} transparent;
+	}
+
+	.dropdown .pointer-inner {
+		border-color: {{ current_preset.main_background }} transparent;
+	}
+
+	.dropdown-extended .pointer-inner {
+		border-color: {{ current_preset.main_background }} transparent;
+	}
+
+	ul.linklist li.responsive-menu a.responsive-menu-link:before {
+		border-color: {{ current_preset.accent }};
+	}
+
+	ul.linklist li.responsive-menu a.responsive-menu-link:hover:before, ul.linklist li.responsive-menu.visible a.responsive-menu-link:before {
+		border-color: {{ current_preset.accent_light }};
+	}
+
+	.dropdown .dropdown-contents {
+		background: {{ current_preset.main_background }};
+		border-color: {{ current_preset.main_border_color }};
+		box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+	}
+
+	.dropdown-up .dropdown-contents {
+		box-shadow: 1px 0 5px rgba(0, 0, 0, 0.2);
+	}
+
+	.dropdown li, .dropdown li li {
+		border-color: {{ current_preset.main_border_color }};
+	}
+
+	.dropdown li.separator {
+		border-color: {{ current_preset.main_border_color }};
+	}
+
+	/* Notifications  */
+
+	.notification_list p.notification-time {
+		color: {{ current_preset.main_text_color }};
+	}
+
+	li.notification-reported strong, li.notification-disapproved strong {
+		color: {{ current_preset.accent_light }};
+	}
+
+</style>
+{% endset %}
+{% spaceless %}
+{{ css|replace({'\n': '', '	':'', '                  ': '', '                 ':'', '         ': '', '  ':''}) }}
+{% endspaceless %}

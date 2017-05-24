@@ -1,0 +1,63 @@
+- name: Home
+  url: ./
+  icon: home
+  icon_provider: fontawesome
+  active: true
+- name: SubMenu Example
+  url: "#"
+  icon:
+  icon_provider:
+  active: false
+  submenu:
+    - name: Icon Item
+      url: "#"
+      icon: bank
+      icon_provider: fontawesome
+      active: true
+    - name: Example Item
+      url: "#"
+      icon:
+      icon_provider:
+      active: false
+    - name: Example Item
+      url: "#"
+      icon:
+      icon_provider:
+      active: false
+      submenu:
+        - name: Example Item
+          url: "#"
+          icon:
+          icon_provider:
+          active: false
+        - name: Example Item
+          url: "#"
+          icon:
+          icon_provider:
+          active: false
+          submenu:
+            - name: Example Item
+              url: "#"
+              icon:
+              icon_provider:
+              active: false
+            - name: Example Item
+              url: "#"
+              icon:
+              icon_provider:
+              active: false
+            - name: Example Item
+              url: "#"
+              icon:
+              icon_provider:
+              active: false
+        - name: Example Item
+          url: "#"
+          icon:
+          icon_provider:
+          active: false
+- name: Example Item
+  url: "#"
+  icon:
+  icon_provider:
+  active: false

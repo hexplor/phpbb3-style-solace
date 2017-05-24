@@ -1,0 +1,51 @@
+<html lang="en" class=" js csstransforms3d">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="./inc/style.css" type="text/css" rel="stylesheet">
+  <link href="./inc/custom.css" type="text/css" rel="stylesheet">
+  <script src="./inc/style.js" type="text/javascript" ></script>
+  <script>
+  $(document).ready(function() {
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+  });
+  </script>
+</head>
+<body>
+  <h1>Using Variables in CSS</h1>
+
+  <p>
+    In Solace, we wanted to give user maximum flexibility with style customization. That's why we prepared Solace css to utilize Devlom Configurator variables. There's one key file where all the magic happens:
+  </p>
+  <pre>solace/template/colours.html.twig</pre>
+
+  <p>
+    Take a look at <samp>html,body</samp> tag:
+  </p>
+
+  <pre><code class="hljs twig">html, body {
+  color: {{ current_preset.main_text_color }};
+  background-color: {{ current_preset.main_background }};
+}</code></pre>
+
+<p>
+  As you can see both text <samp>color</samp> and <samp>background-color</samp> will utilize <strong>main_text_color</strong> and <strong>main_background</strong> preset variables. In connection with <a href="http://twig.sensiolabs.org/">Twig</a>, you can create very sophisticated and automated layouts.
+</p>
+
+
+  <div class="notices info">
+    <p>
+      <a href="http://twig.sensiolabs.org/">Twig</a> is default templating engine used in phpBB 3.1. To learn more about <a href="http://twig.sensiolabs.org/">Twig</a>, please take a look at <a href="http://twig.sensiolabs.org/documentation">documentation</a>.
+    </p>
+  </div>
+
+<p>
+  That's it. You may also <strong>Purge the cache</strong> and you're done.
+</p>
+
+
+  <br />
+  <script src="./inc/iframeResizer.contentWindow.min.js" type="text/javascript" ></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<html lang="en" class=" js csstransforms3d">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="./inc/style.css" type="text/css" rel="stylesheet">
+  <link href="./inc/custom.css" type="text/css" rel="stylesheet">
+  <script src="./inc/style.js" type="text/javascript" ></script>
+  <script>
+  $(document).ready(function() {
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+  });
+  </script>
+</head>
+<body>
+  <h1>Slideshow</h1>
+
+  <div class="notices warning">
+    <p>Make sure that <a href="configurator_install.html" target="bodyinner">Devlom Configurator</a> extension is installed in your phpBB. Otherwise changes made to slideshow.yaml won't be visible in your forum.  </p>
+  </div>
+
+  <p>In Solace, we keep slideshow data in <samp>solace/content/slideshow.yaml</samp> file.</p>
+<p>
+  Before you start modifying <samp>slideshow.yaml</samp> file, please perpare images and upload them to:
+</p>
+
+<pre>solace/theme/images/slides/</pre>
+
+<p>
+  For best appearance, make sure all of them are in the same width and height.
+</p>
+
+<div class="notices info">
+  <p>Slideshow script will automatically adjust height to your image size. If you want to force slideshow to display with certain height, you can do it by specifying dedicated option inside Devlom Configurator "Slideshow" section (described in next chapters).</p>
+</div>
+
+Now, open <samp>solace/content/slideshow.yaml</samp>.
+
+<pre><code>- image: fullimage1.jpg
+  title: "Try. Something. New"
+  description: Nullam quis risus eget urna mollis ornare vel eu leo. Integer posuere erat a ante venenatis lorem anakis dapibus posuere velit aliquet.
+- image: fullimage2.jpg
+  title: "Another slide"
+  description: Nulla vitae elit libero, a pharetra augue.
+- image: fullimage3.jpg
+  title: "Mollis Fusce"
+  description: Nullam id dolor id nibh ultricies vehicula ut id elit.
+- image: fullimage4.jpg
+  title: "Consectetur Vestibulum"
+  description: Etiam porta sem malesuada magna mollis euismod.
+- image: fullimage5.jpg
+  title: "Condimentum Pellentesque"
+  description: Sed posuere consectetur est at lobortis.
+- image: fullimage6.jpg
+  title: "Tortor Purus"
+  description: Morbi leo risus, porta ac consectetur ac, vestibulum at eros..</code></pre>
+
+<p>
+  In <samp>solace/content/slideshow.yaml</samp> you can specify image name, slideshow title and description. Where <samp>name</samp>, you have to provide file name of the image uploaded to <samp>solace/theme/images/slides/</samp>.
+</p>
+<div class="notices tip">
+  <p>Add as many slides as you want. There is no limit for slides in Solace.</p>
+</div>
+
+  <br />
+  <script src="./inc/iframeResizer.contentWindow.min.js" type="text/javascript" ></script>
+</body>
+</html>

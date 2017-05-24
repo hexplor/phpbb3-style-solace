@@ -1,0 +1,17 @@
+{% if slideshow %}
+{% set slides = slideshow %}
+{% else %}
+{% set slides = config.slides %}
+{% endif %}
+
+<div id="slideshow" class="{% if saved_config.general.topbar_type != 'sticky' %}topbarnormal{% endif %} owl-carousel owl-theme">
+	{% for slide in slides %}
+	<div class="item">
+		<div class="item-content">
+			<h1>{{ slide.title }}</h1>
+			<h2>{{ slide.description }}</h2>
+		</div>
+		<img src="{T_THEME_PATH}/images/slides/{{ slide.image }}" alt="{{ slide.title }}" {% if saved_config.slideshow.height %}style="height: {{ saved_config.slideshow.height }};"{% endif %}>
+	</div>
+	{% endfor %}
+</div>

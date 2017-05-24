@@ -1,0 +1,99 @@
+{% if topmenu %}
+{% set menu_items = topmenu %}
+{% else %}
+{% set menu_items = config.topmenu %}
+{% endif %}
+
+<div id="topbar"  class="contain-to-grid {% if saved_config.general.topbar_type == 'sticky' %}sticky{% else %}normal{% endif %} foundation-element {% if not slideshow_enabled %}visible{% endif %}">
+	<nav class="top-bar" data-topbar role="navigation" {% if saved_config.general.topbar_type == 'sticky' %}data-options="sticky_on: large"{% endif %}>
+		<ul class="title-area">
+			<li class="name">
+
+        {% if saved_config %}{% set config = saved_config %}{% endif %}
+					{% if config.logo %}
+						{% if config.logo.type == 'text' %}
+							<h1><a href="{% if config.logo.link %}{{ config.logo.link }}{% else %}{{ U_INDEX }}{% endif %}">{{ config.logo.text }}</a></h1>
+						{% endif %}
+						{% if config.logo.type == 'image' %}
+            <a href="{% if config.logo.link %}{{ config.logo.link }}{% else %}{{ U_INDEX }}{% endif %}">
+							<img src="{{ T_THEME_PATH }}/images/{{ config.logo.image }}" {% if config.logo.width or config.logo.height %}style="width: {{ config.logo.width }}; height: width: {{ config.logo.height }};{% endif %}" alt="Logo" />
+            </a>
+						{% endif %}
+					{% endif %}
+				</li>
+				<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+			</ul>
+
+			<section class="top-bar-section">
+				<!-- Right Nav Section -->
+				<ul class="right">
+					<li>
+						{% if menu_items %}
+						<ul class="condense menu-bar left">
+							{% for item in menu_items %}
+							<li {% if item.submenu %}class="has-dropdown not-click"{% endif %}><a {% if item.active %}class="active"{% endif %} href="{{ item.url }}">{% if item.icon %}<i class="{% if item.icon_provider == 'fontawesome' %}fa fa{% else %}lineicon{% endif %}-{{ item.icon }}"></i>{% endif %}<span>{{ item.name }}<span></a>
+								{% if item.submenu %}
+								<ul class="dropdown">
+									<li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+									{% for sub1 in item.submenu %}
+									<li {% if sub1.submenu %}class="has-dropdown not-click"{% endif %}><a href="{{ sub1.url }}">{% if sub1.icon %}<i class="{% if sub1.icon_provider == 'fontawesome' %}fa fa{% else %}lineicon{% endif %}-{{ sub1.icon }}"></i>{% endif %}{{ sub1.name }}</a>
+
+										{% if sub1.submenu %}
+										<ul class="dropdown">
+											<li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+											{% for sub2 in sub1.submenu %}
+											<li {% if sub2.submenu %}class="has-dropdown not-click"{% endif %}><a href="{{ sub2.url }}">{% if sub2.icon %}<i class="{% if sub2.icon_provider == 'fontawesome' %}fa fa{% else %}lineicon{% endif %}-{{ sub2.icon }}"></i>{% endif %}{{ sub2.name }}</a>
+
+												{% if sub2.submenu %}
+												<ul class="dropdown">
+													<li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+													{% for sub3 in sub2.submenu %}
+													<li {% if sub3.submenu %}class="has-dropdown not-click"{% endif %}><a href="{{ sub3.url }}">{% if sub3.icon %}<i class="{% if sub3.icon_provider == 'fontawesome' %}fa fa{% else %}lineicon{% endif %}-{{ sub3.icon }}"></i>{% endif %}{{ sub3.name }}</a>
+
+														{% if sub3.submenu %}
+														<ul class="dropdown">
+															<li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+															{% for sub4 in sub3.submenu %}
+															<li><a href="{{ sub4.url }}">{% if sub4.icon %}<i class="{% if sub4.icon_provider == 'fontawesome' %}fa fa{% else %}lineicon{% endif %}-{{ sub4.icon }}"></i>{% endif %}{{ sub4.name }}</a></li>
+															{% endfor %}
+														</ul>
+														{% endif %}
+
+													</li>
+													{% endfor %}
+												</ul>
+												{% endif %}
+
+											</li>
+											{% endfor %}
+										</ul>
+										{% endif %}
+
+									</li>
+									{% endfor %}
+								</ul>
+								{% endif %}
+							</li>
+							{% endfor %}
+              <!-- EVENT topbar_menu_after -->
+						</ul>
+						{% endif %}
+					</li>
+
+          <li class="has-form">
+            <div class="row collapse">
+              <form action="{U_SEARCH}" method="get" id="search">
+      				<fieldset>
+      					<input name="keywords" id="keywords" type="search" maxlength="128" title="{L_SEARCH_KEYWORDS}" class="inputbox search tiny" size="20" value="{SEARCH_WORDS}" placeholder="{L_SEARCH_MINI}" />
+      					{S_SEARCH_HIDDEN_FIELDS}
+  <i class="search-icon"></i>
+      				</fieldset>
+      				</form>
+            </div>
+          </li>
+
+				</ul>
+			</section>
+		</nav>
+	</div>

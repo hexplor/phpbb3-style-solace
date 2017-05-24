@@ -1,0 +1,176 @@
+{% if MODE === 'style' or MODE === 'modules'  %}
+    <!-- INCLUDECSS libraries/gantry/gantry.css -->
+{% endif %}
+{% if MODE === 'style' %}
+  {% set browser_engine_css %}{% include 'libraries/gantry/gantry' ~ RTCHECK_ENGINE ~ '.css' ignore missing %}{% endset %}
+  {% if browser_engine_css is not empty %}{% INCLUDECSS 'libraries/gantry/gantry' ~ RTCHECK_ENGINE ~ '.css' %}{% endif %}
+  {% set browser_platform_css %}{% include 'libraries/gantry' ~ RTCHECK_PLATFORM ~ '.css' ignore missing %}{% endset %}
+  {% if browser_platform_css is not empty %}{% INCLUDECSS 'libraries/gantry/gantry' ~ RTCHECK_PLATFORM ~ '.css' %}{% endif %}
+  {% set browser_css %}{% include 'libraries/gantry/gantry' ~ RTCHECK_BROWSER ~ '.css' ignore missing %}{% endset %}
+  {% if browser_css is not empty %}{% INCLUDECSS 'libraries/gantry/gantry' ~ RTCHECK_BROWSER ~ '.css' %}{% endif %}
+  {% set shortbrowser_css %}{% include 'libraries/gantry/gantry' ~ RTCHECK_SHORTBROWSER ~ '.css' ignore missing %}{% endset %}
+  {% if shortbrowser_css is not empty %}{% INCLUDECSS 'libraries/gantry/gantry' ~ RTCHECK_SHORTBROWSER ~ '.css' %}{% endif %}
+  <!-- INCLUDECSS libraries/gantry/mooRainbow.css -->
+{% endif %}
+{% if MODE === 'modules' %}
+  <!-- INCLUDECSS libraries/gantry/jquery-ui.css -->
+  <!-- INCLUDEJS libraries/gantry/jquery-ui.js -->
+{% endif %}
+
+{% if MODE === 'style' or MODE === 'modules'  %}
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+{% endif %}
+
+{% if MODE === 'style' %}
+  {% macro js(param, context) %}
+      <script type="text/javascript" src="{{ context.ROOT_PATH }}ext/rockettheme/rokbb/adm/style/libraries/gantry/{{ param }}"></script>
+  {% endmacro %}
+
+  {% import _self as addAsset %}
+
+  {{ addAsset.js('mootools-core.js', _context) }}
+  {{ addAsset.js('mootools-more.js', _context) }} 
+  {{ addAsset.js('gantry.js', _context) }}
+  {{ addAsset.js('mooRainbow.js', _context) }}   
+
+{% if GANTRY_PRESETS %}
+  <script type="text/javascript">
+    var stylesList = new Hash({});
+    var styleSelected = null;
+    window.addEvent('domready', function() {
+        styleSelected = document.id('preset_style').get('value');
+        document.id('preset_style').empty();
+
+        {% spaceless %}
+        {% for item in GANTRY_PRESETS %}
+        {% for presets in item %} 
+        stylesList.set('{{ (presets.name|lower)|replace({' ': ''}) }}',[{% for preset_key, preset_value in presets %}'{{ preset_value }}',{% endfor %}]);{% endfor %}
+        {% endfor %}
+        {% endspaceless %}
+
+    });var rainbowLoad = function(name, hex) {
+        if (hex) {
+            var n = name.replace('params', '');
+            document.id(n+'_input').getPrevious().value = hex;
+            document.id(n+'_input').getFirst().setStyle('background-color', hex);
+        }
+    };
+    window.addEvent('domready', function() {
+    // Styles Combo
+    var stylesCombo = document.id('preset_style'); 
+
+    {% for item in GANTRY_PRESETS %}{% for presets in item %}{% if loop.first %}{% for key, value in presets %} var {{ key|replace({'-': '_'}) }} = document.id('{{ key|replace({'-': '_'}) }}');{% endfor %}{% endif %}{% endfor %}{% endfor %}
+
+    stylesList.each(function(key, value) {
+        var option = new Element('option', {'value': value.toLowerCase()}).set('html', value.capitalize());
+        if (value == styleSelected) option.set('selected', 'selected');
+        option.inject(stylesCombo);
+    });
+    var option = new Element('option', {'value': 'custom'}).set('html', 'Custom').inject(stylesCombo);
+    if (styleSelected == 'custom') option.set('selected', 'selected');
+
+    stylesCombo.addEvent('change', function(e) {
+        e.stop();
+        if (this.value == 'custom') return;
+
+    {% for item in GANTRY_PRESETS %}
+      {% for presets in item %}
+        {% if loop.first %}
+          {% for key, value in presets %} 
+            {% if key !== 'name'  %}
+              {% if "#" in value  %} rainbowLoad('myRainbow_{{ key|replace({'-': '_'}) }}', stylesList.get(this.value)[{{ loop.index0 }}]);{% else %}
+              {{ key|replace({'-': '_'}) }}.getChildren().each(function(el) {
+                  if (el.value == stylesList.get(this.value)[{{ loop.index0 }}]) el.selected = true;
+              }, this); 
+            {% endif %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    });                       
+    });
+
+    {% import 'libraries/gantry/colorchooser.html.twig' as generate %}
+    {% for item in GANTRY_PRESETS %}
+      {% for presets in item %}
+        {% if loop.first %}
+          {% for key, value in presets %} 
+            {% if "#" in value  %}{{ generate.colorchooser(key|replace({'-': '_'}), _context) }}{% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+</script>
+{% endif %}
+
+
+{% if YAML_PRESETS %}
+  <script type="text/javascript">
+    var stylesList = new Hash({});
+    var styleSelected = null;
+    window.addEvent('domready', function() {
+        styleSelected = document.id('preset_style').get('value');
+        document.id('preset_style').empty();
+
+        {% spaceless %}
+        {% for item in YAML_PRESETS %}
+
+        stylesList.set('preset{{ loop.index }}',[{% for preset_key, preset_value in item.styles %}{% for subitem_key, subitem_value in preset_value %}'{{ subitem_value }}',{% endfor %}{% endfor %}]);{% endfor %}
+        {% endspaceless %}
+
+    });var rainbowLoad = function(name, hex) {
+        if (hex) {
+            var n = name.replace('params', '');
+            document.id(n+'_input').getPrevious().value = hex;
+            document.id(n+'_input').getFirst().setStyle('background-color', hex);
+        }
+    };
+    window.addEvent('domready', function() {
+    // Styles Combo
+    var stylesCombo = document.id('preset_style'); 
+
+    {% for item in YAML_PRESETS %}{% if loop.first %}{% for preset_key, preset_value in item.styles %}{% for key, value in preset_value %} var {{ preset_key }}_{{ key|replace({'-': '_'}) }} = document.id('{{ preset_key }}_{{ key|replace({'-': '_'}) }}');{% endfor %}{% endfor %}{% endif %}{% endfor %}
+
+    stylesList.each(function(key, value) {
+        var option = new Element('option', {'value': value.toLowerCase()}).set('html', value.capitalize());
+        if (value == '{{ PRESET_STYLE }}') option.set('selected', 'selected');
+        option.inject(stylesCombo);
+    });
+    var option = new Element('option', {'value': 'custom'}).set('html', 'Custom').inject(stylesCombo);
+    if (styleSelected == 'custom') option.set('selected', 'selected');
+
+    stylesCombo.addEvent('change', function(e) {
+        e.stop();
+        if (this.value == 'custom') return;
+
+    {% set counter = -1 %}   
+    {% for item in YAML_PRESETS %}
+      {% if loop.first %}
+      {% for preset_key, preset_value in item.styles %}
+      {% set first_index = loop.index %}  
+          {% for key, value in preset_value %} 
+              {% if "#" in value or "family" in key or "gantry-media" in value %} rainbowLoad('myRainbow_{{ preset_key }}_{{ key|replace({'-': '_'}) }}', stylesList.get(this.value)[{% set counter = counter + 1 %}{{ counter }}]);{% endif %}
+          {% endfor %}
+      {% endfor %}
+      {% endif %}
+    {% endfor %}
+    });                       
+    });
+
+    {% import 'libraries/gantry/colorchooser.html.twig' as generate %}
+      {% for item in YAML_PRESETS %}
+        {% if loop.first %}
+          {% for preset_key, preset_value in item.styles %}
+            {% for key, value in preset_value %} 
+              {% if "#" in value or "family" in key or "gantry-media" in value %}{{ generate.colorchooser(preset_key ~ '_' ~ key|replace({'-': '_'}), _context) }}{% endif %}
+            {% endfor %}
+          {% endfor %}
+        {% endif %}
+    {% endfor %}
+</script>
+{% endif %}
+
+{% endif %}
+
+

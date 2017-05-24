@@ -1,0 +1,61 @@
+<html lang="en" class=" js csstransforms3d">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="./inc/style.css" type="text/css" rel="stylesheet">
+  <link href="./inc/custom.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <h1>Installing Devlom Configurator Extension</h1>
+
+		<p>First, you will need to unpackage Devlom Configurator extension on your computer. Devlom Configurator is zipped into one ThemeForest package which contains following files and directories: </p>
+
+    <pre><code class="language-bash hljs">Documentation/
+    devlom.zip
+    solace.zip</code><span class="copy-to-clipboard" title="Copy to clipboard"></span></pre>
+
+    <p>Devlom Configurator extension is inside <strong>devlom.zip</strong>.</p>
+
+		<p>In Windows, to unzip the extension, simply double click <strong>devlom.zip</strong> from the Windows Explorer view (for instance, if you downloaded the extension to My Documents, you would open My Documents and double click the file). Proceed to click "Extract all files" under the address bar (Windows Vista, 7 and 8) or under the Folder Tasks menu (Windows XP) from within the Explorer window and follow the prompts.</p>
+		<p>On Mac, zipped files are automatically unzipped upon download by Safari (this setting can be disabled by unticking "Open safe files" in Safari's preferences) and can be accessed through the downloads list.</p>
+		<p>Make sure that your devlom extension includes all the required files as described below:</p>
+
+    <p><img alt="Extension Structure" src="screenshots/extension_structure.jpg"></p>
+
+    <h3>2. Upload to your board</h3>
+		<p>To upload extension files, open your favourite FTP client (such as FileZilla, CuteFTP, SmartFTP, etc - even some internet web browsers have this capability) and log in to your account. Generally your publicly accessible files will be in an area named "<samp>public_html</samp>" or similar. Navigate to your board folder. You would need to navigate to the "<samp>ext/</samp>" directory once you are in your board folder.</p>
+		<p>Drag the folder "<samp>devlom/configurator</samp>" to the "<samp>ext</samp>" folder in your FTP client. Normally there will be a small folder icon within the FTP client (this may vary from client to client) followed by the name of the directory - this is where you should be dragging the file to. If there is already an "<samp>devlom</samp>" folder inside your "<samp>ext</samp>" folder, then just copy the "<samp>configurator</samp>" folder to "<samp>ext/devlom/</samp>".</p> After whole operation. Folder structure inside "<samp>ext</samp>" directory should look like this:
+
+      <p><img alt="Folder Structure" src="screenshots/folder_structure.png"></p>
+
+		<h3>3. Enable</h3>
+		<p>Once the Devlom Configurator extension has been uploaded, navigate in the board's <strong>Administration Control Panel</strong> to Customise -&gt; Manage extensions. You should see your recently uploaded extension listed under "Disabled Extensions". Simply click its "Enable" button and installation is complete!</p>
+
+    <p><img alt="Extension Installation" src="screenshots/extension_install.jpg"></p>
+
+		<hr>
+
+		<h2 class="title" id="updating">Updating an Extension</h2>
+		<p>Updating an Devlom Configurator extension is a simple process that can be completed in a few simple steps with minimal disruption to your board. The following steps assume you have already downloaded and un-zipped a new version of an existing extension running on your board.</p>
+
+		<h3>1. Disable</h3>
+		<p>Disabling an Devlom Configurator extension will effectively turn it off, removing it from your board. Remember that disabling extension will <strong>revert</strong> your style to default settings. All saved style values won't be loaded.</p>
+
+		<h3>2. Delete extension files</h3>
+		<p>Using your FTP program delete the Devlom Configurator files from the filesystem. Just delete "<samp>devlom/configurator</samp>" folder inside "<samp>ext</samp>" directory.  </p>
+
+		<h3>3. Upload new extension files</h3>
+		<p>Using your FTP program upload the new Devlom Configurator extension files to the correct location.</p>
+
+		<h3>4. Enable</h3>
+		<p>Once the extension has been uploaded, navigate in the board's ACP to Customise -&gt; Manage extensions. You should see your recently uploaded extension listed under "Disabled Extensions". Simply click its "Enable" button and the update is complete!</p>
+
+    <h3>4. Purge the cache</h3>
+		<p>Once the extension has been installed, purge the cache in phpBB "General" tab.</p>
+
+		<hr>
+
+
+  <br />
+  <script src="./inc/iframeResizer.contentWindow.min.js" type="text/javascript" ></script>
+</body>
+</html>

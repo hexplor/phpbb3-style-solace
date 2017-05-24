@@ -1,0 +1,49 @@
+<!-- INCLUDEJS js/jqColorPicker.min.js -->
+<!-- INCLUDEJS js/cbpFWTabs.js -->
+
+
+
+<script>
+$(function(){
+{% for section in admin_fields %}
+{% for item in section.content %}
+{% if item.type == 'font' %}
+  $(" #{{ section.name|lower|replace({' ': '_'}) }}\\[{{ item.name|lower|replace({' ': '_'}) }}\\] ").fontselect();
+{% endif %}
+{% endfor %}
+
+{% if section.name == 'Colours' %}
+$(document).ready(function () {
+  $('#presets').on('change', function () {
+  var textval = $(":selected",this).val();
+{% for preset in presets %}
+  if($(":selected",this).val() == "preset{{ loop.index }}") {
+{% for key, value in preset %}
+    {% if 'image' in key %}
+      $('#colours\\[{{ key }}\\]').val("{{ value }}");
+    {% else %}
+      $('#colours\\[{{ key }}\\]').val("{{ value|upper }}");
+      $('#colours\\[{{ key }}\\]').colorPicker();
+    {% endif %}
+{% endfor %}
+  }
+{% endfor %}
+});
+});
+{% endif %}
+
+{% endfor %}
+});
+
+{% for section in admin_fields %}
+{% for item in section.content %}
+{% if item.type == 'image' %}
+$('#{{ section.name|lower|replace({' ': '_'}) }}\\[{{ item.name|lower|replace({' ': '_'}) }}\\]').blur(function() {
+		var newSrc = $('#{{ section.name|lower|replace({' ': '_'}) }}\\[{{ item.name|lower|replace({' ': '_'}) }}\\]').val();
+		$('#{{ section.name|lower|replace({' ': '_'}) }}_{{ item.name|lower|replace({' ': '_'}) }}_preview').attr('src', '{{ ROOT_PATH }}/styles/{{ ACTUAL_STYLE }}/theme/images/' + newSrc);
+	});
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+</script>

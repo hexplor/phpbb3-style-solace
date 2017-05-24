@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+{% block overall_footer %}
+		<!-- EVENT overall_footer_content_after -->
+	</div>
+
+<!-- EVENT overall_footer_page_body_after -->
+
+<div id="page-footer" role="contentinfo">
+
+	<div class="copyright">
+		<!-- EVENT overall_footer_copyright_prepend -->
+		{CREDIT_LINE}
+		<!-- IF TRANSLATION_INFO --><br />{TRANSLATION_INFO}<!-- ENDIF -->
+		<!-- EVENT overall_footer_copyright_append -->
+		<!-- IF DEBUG_OUTPUT --><br />{DEBUG_OUTPUT}<!-- ENDIF -->
+		<!-- IF U_ACP --><br /><strong><a href="{U_ACP}">{L_ACP}</a></strong><!-- ENDIF -->
+	</div>
+
+	<div id="darkenwrapper" data-ajax-error-title="{L_AJAX_ERROR_TITLE}" data-ajax-error-text="{L_AJAX_ERROR_TEXT}" data-ajax-error-text-abort="{L_AJAX_ERROR_TEXT_ABORT}" data-ajax-error-text-timeout="{L_AJAX_ERROR_TEXT_TIMEOUT}" data-ajax-error-text-parsererror="{L_AJAX_ERROR_TEXT_PARSERERROR}">
+		<div id="darken">&nbsp;</div>
+	</div>
+
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="{L_ERROR}" data-l-timeout-processing-req="{L_TIMEOUT_PROCESSING_REQ}">
+		<a href="#" class="alert_close"></a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="#" class="alert_close"></a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	<!-- IF not S_IS_BOT -->{RUN_CRON_TASK}<!-- ENDIF -->
+</div>
+</div>
+{% include 'navbar_bottom.html.twig' %}
+{% include 'footer.html.twig' %}
+
+<script type="text/javascript" src="{T_JQUERY_LINK}"></script>
+<!-- IF S_ALLOW_CDN --><script type="text/javascript">window.jQuery || document.write(unescape('%3Cscript src="{T_ASSETS_PATH}/javascript/jquery.min.js?assets_version={T_ASSETS_VERSION}" type="text/javascript"%3E%3C/script%3E'));</script><!-- ENDIF -->
+<script type="text/javascript" src="{T_ASSETS_PATH}/javascript/core.js?assets_version={T_ASSETS_VERSION}"></script>
+
+<script type="text/javascript" src="{T_TEMPLATE_PATH}/js/vendor/modernizr.js?assets_version={T_ASSETS_VERSION}"></script>
+<!-- INCLUDEJS forum_fn.js -->
+<!-- INCLUDEJS ajax.js -->
+<script type="text/javascript" src="{T_TEMPLATE_PATH}/js/foundation.min.js?assets_version={T_ASSETS_VERSION}"></script>
+<script type="text/javascript" src="{T_TEMPLATE_PATH}/js/foundation/foundation.topbar.js?assets_version={T_ASSETS_VERSION}"></script>
+<script type="text/javascript" src="{T_TEMPLATE_PATH}/owl-carousel/owl.carousel.js?assets_version={T_ASSETS_VERSION}"></script>
+
+<!-- EVENT overall_footer_after -->
+
+<!-- IF S_PLUPLOAD --><!-- INCLUDE plupload.html --><!-- ENDIF -->
+{$SCRIPTS}
+<script>
+$(document).foundation();
+{% if slideshow_enabled %}
+$(document).ready(function() {
+  $("#slideshow").owlCarousel({
+    navigation : {% if saved_config.slideshow.navigation == 'No'%}false{% else %}true{% endif %},
+    pagination : {% if saved_config.slideshow.pagination == 'No'%}false{% else %}true{% endif %},
+    slideSpeed : 300,
+    paginationSpeed : 400,
+    singleItem:true,
+    {% if saved_config.slideshow.transition != 'slide' %}transitionStyle : "{% if saved_config.slideshow.transition %}{{ saved_config.slideshow.transition }}{% else %}fadeUp{% endif %}",{% endif %}
+    navigationText : ["<i class=\"fa fa-angle-left\"></i>", "<i class=\"fa fa-angle-right\"></i>"],
+  });
+  {% if not saved_config.slideshow.presets_synchronization or saved_config.slideshow.presets_synchronization == 'Yes' %}
+    var owl = $("#slideshow").data('owlCarousel');
+    owl.goTo({{ switcher_preset_name|replace({ 'preset': '' }) }} - 1);
+  {% endif %}
+});
+{% endif %}
+{% if saved_config.general.topbar_type == 'sticky' %}
+{% if slideshow_enabled %}
+$(document).on("scroll",function(){
+  if($(document).scrollTop()>50){
+    $("#topbar").removeClass("notvisible").addClass("visible");
+  } else{
+    $("#topbar").removeClass("visible").addClass("notvisible");
+  }
+});
+{% endif %}
+{% endif %}
+
+// Font spans for headers
+{% if not saved_config.general.font_spans or saved_config.general.font_spans == 'Yes' %}
+(function () {
+    var node = $(".stat-block h3").contents().filter(function () { return this.nodeType == 3 }).first(),
+        text = node.text(),
+        first = text.slice(0, text.indexOf(" "));
+
+    if (!node.length)
+        return;
+
+    node[0].nodeValue = text.slice(first.length);
+    node.before('<span>' + first + '</span>');
+})();
+(function () {
+    var node = $(".stat-block h3 a").contents().filter(function () { return this.nodeType == 3 }).first(),
+        text = node.text(),
+        first = text.slice(0, text.indexOf(" "));
+
+    if (!node.length)
+        return;
+
+    node[0].nodeValue = text.slice(first.length);
+    node.before('<span>' + first + '</span>');
+})();
+(function () {
+    var node = $("#page-body h2 a").contents().filter(function () { return this.nodeType == 3 }).first(),
+        text = node.text(),
+        first = text.slice(0, text.indexOf(" "));
+
+    if (!node.length)
+        return;
+
+    node[0].nodeValue = text.slice(first.length);
+    node.before('<span>' + first + '</span>');
+})();
+{% endif %}
+</script>
+
+
+<!-- EVENT overall_footer_body_after -->
+
+</body>
+</html>
+{% endblock %}

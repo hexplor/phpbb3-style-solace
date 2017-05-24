@@ -1,0 +1,16 @@
+/*  phpBB3 Style Sheet
+    --------------------------------------------------------------
+	   Style name:			solace
+     Copyright: © Devlom 2016 All Rights Reserved
+    --------------------------------------------------------------
+*/
+
+@import url("simple.css");
+@import url("common.css");
+@import url("links.css");
+@import url("content.css");
+@import url("buttons.css");
+@import url("cp.css");
+@import url("forms.css");
+@import url("css/foundation.css");
+@import url("imageset.css");

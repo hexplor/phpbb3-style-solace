@@ -1,0 +1,162 @@
+<html lang="en" class=" js csstransforms3d">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="./inc/style.css" type="text/css" rel="stylesheet">
+  <link href="./inc/custom.css" type="text/css" rel="stylesheet">
+  <script src="./inc/style.js" type="text/javascript" ></script>
+  <script>
+  $(document).ready(function() {
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+  });
+  </script>
+</head>
+<body>
+  <h1>Menus</h1>
+
+  <div class="notices warning">
+    <p>Make sure that <a href="configurator_install.html" target="bodyinner">Devlom Configurator</a> extension is installed in your phpBB. Otherwise changes made to files below won't be visible in your forum.  </p>
+  </div>
+
+  <p>In Solace, we keep menus data in following YAML files located inside <samp>solace/content</samp> directory:  </p>
+  <ul>
+    <li>topmenu.yaml - menu data for top menu.</li>
+    <li>quickmenu.yaml - menu data for footer "Quick Menu" section.</li>
+    <li>socialmenu.yaml - footer social icons.</li>
+    <li>copyrightmenu.yaml - menu data for copyright section.</li>
+  </ul>
+
+  <h2>Top Menu</h2>
+  Let's take a look at <samp>topmenu.yaml</samp>. Below is a first menu item:
+  <pre>
+<code>
+- name: Home
+  url: ./
+  icon: home
+  icon_provider: fontawesome
+  active: true</code></pre>
+  <p>As you can see, whole syntax is very easy to read and understand. Let's describe each part:  </p>
+
+  <pre>
+<code>
+- name: Home # Menu item name
+  url: ./ # Menu item url (absolute or relative)
+  icon: home # Icon name
+  icon_provider: fontawesome # Icon provider: fontawesome or lineicon
+  active: true # enable or disable active menu highlight</code></pre>
+
+  <h3>Icon and Icon Providers</h3>
+
+  Solace allows you to pick icon from two providers. <a href="http://fortawesome.github.io/Font-Awesome/icons/">FontAwesome</a> nad <a href="http://www.elegantthemes.com/blog/resources/how-to-use-and-embed-an-icon-font-on-your-website">ET-Line Icons</a> (icon names in the middle of the page). In both cases, all you have to do is simply provide an icon name. So for example, if FontAwesome icon name is <samp>fa-bars</samp> then all you have to do is provide:
+  <pre>
+<code>
+icon: bars</code>
+</pre>
+If ET-Line Icon class name is <samp>.icon-chat</samp> then all you have to do is provide:<pre>
+<code>
+icon: chat</code></pre>
+
+<p>Ready to add another menu item ? It's easy.</p>
+
+<pre>
+<code>
+- name: Another menu item
+  url: "http://www.devlom.com"
+  icon: desktop
+  icon_provider: lineicon
+  active: true</code></pre>
+
+<p>How easy is that ? :) The whole code for two menu items should look like that:</p>
+
+<pre>
+<code>
+- name: Home
+  url: ./
+  icon: home
+  icon_provider: fontawesome
+  active: true
+- name: Another menu item
+  url: "http://www.devlom.com"
+  icon: desktop
+  icon_provider: lineicon
+  active: true</code></pre>
+
+<h3>Adding submenu</h3>
+<p>Adding submenu is also very easy. Let's add submenu to our second item. Whole code will look like that:</p>
+
+<pre>
+<code>
+- name: Home
+  url: ./
+  icon: home
+  icon_provider: fontawesome
+  active: true
+- name: Another menu item
+  url: "http://www.devlom.com"
+  icon: desktop
+  icon_provider: lineicon
+  active: true
+  submenu:
+    - name: Icon Item
+      url: "#"
+      icon: bank
+      icon_provider: fontawesome
+      active: true
+    - name: Example Item
+      url: "#"
+      icon:
+      icon_provider:
+      active: false</code>
+</pre>
+
+As you can see from above example, key value is called <samp>submenu:</samp> which is also a container. You can add as many menu items to each container as you want. There's one limitation though. Solace supports maximum <strong>4 level</strong> menu items.
+
+<div class="notices tip">
+  <p><samp>topmenu.yaml</samp> is a perfect example to look if you want to learn how to create complex submenus.  </p>
+</div>
+
+<h2>Quick menu</h2>
+<p>Quick menu is located in forum footer. Quick menu syntax is almost the same as Top Menu except that you can't create submenus and highlight active item. Example menu items:</p>
+<pre>
+<code class="language-markdown">- name: Example Item 1
+  url: "#"
+- name: Example Item 1
+  url: "#"</code></pre>
+
+  <div class="notices tip">
+    <p><samp>quickmenu.yaml</samp> is a perfect example to look if you want to learn how it works</p>
+  </div>
+
+    <h2>Copyright menu</h2>
+    <p>Quick menu is located in forum copyright section. Below footer. Quick menu syntax is very basic. You can specify name and url only. Example menu items:</p>
+  <pre><code class="language-markdown">- name: Example Item 1
+  url: "#"
+- name: Example Item 1
+  url: "#"</code></pre>
+
+      <div class="notices tip">
+        <p><samp>copyrightmenu.yaml</samp> is a perfect example to look if you want to learn how it works</p>
+      </div>
+
+<h2>Social menu</h2>
+<p>Social menu is an addition to footer logo module. For social menu you can specify icon, icon provider and url. Example:</p>
+<pre>
+<code class="language-markdown">- icon: facebook
+  url: "#"
+  provider: lineicon
+- icon: twitter
+  url: "#"
+  provider: lineicon
+- icon: linkedin
+  url: "#"
+  provider: lineicon</code></pre>
+
+  <div class="notices tip">
+    <p><samp>socialmenu.yaml</samp> is a perfect example to look if you want to learn how it works</p>
+  </div>
+
+  <br />
+  <script src="./inc/iframeResizer.contentWindow.min.js" type="text/javascript" ></script>
+</body>
+</html>

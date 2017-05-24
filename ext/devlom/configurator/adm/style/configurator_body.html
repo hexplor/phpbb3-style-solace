@@ -1,0 +1,150 @@
+<!-- INCLUDE overall_header.html -->
+<script type="text/javascript">
+function changeClass()
+{
+  {% for section in admin_fields %}
+    {% for item in section.content %}
+      {% if item.type == 'forumicon' %}
+        document.styleSheets[0].addRule('.{{ item.name|lower|replace({' ': '_'}) }}_clone.icon_preview::before','content: ' + "'\\" + document.getElementById('{{ item.name|lower|replace({' ': '_'}) }}').value + "'");
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+}
+window.onload = changeClass;
+window.onkeyup = changeClass;
+</script>
+<form id="acp_board" method="post" action="{U_ACTION}" class="styledform" data-ajax="true">
+  <section>
+    <div class="tabs tabs-style-flip">
+      <nav>
+        <ul>
+          {% for section in admin_fields %}
+            <li><a href="#section-flip-{{ loop.index }}" class="icon icon-{{ section.icon }}"><span>{{ section.name }}</span></a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+      <div class="content-wrap">
+        {% for section in admin_fields %}
+        <section id="section-flip-{{ loop.index }}">
+
+          {% if section.name == 'Colours' %}
+          <div class="form-element">
+            <div class="element-description">
+              <label for="acme_demo_goodbye">Select Preset</label>
+              <p>Select your preferred preset from predefined list.</p>
+            </div>
+            <div class="element-content" style="margin-top: 13px;">
+              <select id="presets" name="presets">
+                {% for preset in presets %}
+                <option value="preset{{ loop.index }}">Preset {{ loop.index }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          {% endif %}
+
+          {% for item in section.content %}
+          <div class="form-element">
+            <div class="element-description">
+              <label for="acme_demo_goodbye">{{ item.name }}</label>
+              {% if item.description %}
+              <p>{{ item.description }}</p>
+              {% endif %}
+            </div>
+            <div class="element-content" {% if item.description %}style="margin-top: 13px;"{% endif %}>
+              {% set section_name = section.name|lower|replace({' ': '_'}) %}
+              {% set item_name = item.name|lower|replace({' ': '_'})  %}
+              {% if item.type == 'picker' %}
+                <input class="color" id="{{ section_name }}[{{ item_name }}]" name="{{ section_name }}[{{ item_name }}]" value="{% if saved_config[section_name][item_name] %}{{ saved_config[section_name][item_name]|upper }}{% else %}{{ item.default|upper }}{% endif %}" />
+              {% endif %}
+
+              {% if item_name == 'provider' %}
+              <style media="screen">
+              .icon_preview:before {
+                {% if saved_config[section_name][item_name] %}
+                  {% if saved_config[section_name][item_name] == 'lineicons' %}
+                    font-family: 'et-line';
+                    font-weight: bold;
+                  {% endif %}
+                  {% if saved_config[section_name][item_name] == 'fontawesome' %}
+                    font-family: 'FontAwesome';
+                    font-weight: normal;
+                  {% endif %}
+                  {% else %}
+                  {% if item.default == 'lineicons' %}
+                    font-family: 'et-line';
+                    font-weight: bold;
+                  {% endif %}
+                  {% if item.default == 'fontawesome' %}
+                    font-family: 'FontAwesome';
+                    font-weight: normal;
+                  {% endif %}
+                {% endif %}
+              }
+              </style>
+              {% endif %}
+
+              {% if item.type == 'select' %}
+              <select id="{{ section_name }}[{{ item_name }}]" name="{{ section_name }}[{{ item_name }}]">
+                {% if item.options %}
+                  {% for option in item.options %}
+                    <option value="{{ option.value }}" {% if saved_config[section_name][item_name] == option.value %}selected="selected"{% endif %}>{{ option.value|capitalize }}</option>
+                  {% endfor %}
+                {% endif %}
+              </select>
+              {% endif %}
+
+              {% if item.type == 'text' %}
+                <input name="{{ section_name }}[{{ item_name }}]" value="{% if saved_config[section_name][item_name] %}{{ saved_config[section_name][item_name] }}{% else %}{{ item.default }}{% endif %}" {% if item.size %}style="width: {{ item.size }};"{% endif %} />
+              {% endif %}
+
+              {% if item.type == 'image' %}
+                <input id="{{ section_name }}[{{ item_name }}]" name="{{ section_name }}[{{ item_name }}]" value="{% if saved_config[section_name][item_name] %}{{ saved_config[section_name][item_name] }}{% else %}{{ item.default }}{% endif %}" {% if item.size %}style="width: {{ item.size }};"{% endif %} />
+                <img id="{{ section_name }}_{{ item_name }}_preview" src="{{ ROOT_PATH }}/styles/{{ ACTUAL_STYLE }}/theme/images/{% if saved_config[section_name][item_name] %}{{ saved_config[section_name][item_name] }}{% else %}{{ item.default }}{% endif %}" alt="Preview" class="logo_preview">
+              {% endif %}
+
+              {% if item.type == 'font' %}
+                <input id="{{ section_name }}[{{ item_name }}]" type="text" name="{{ section_name }}[{{ item_name }}]" value="{% if saved_config[section_name][item_name] %}{{ saved_config[section_name][item_name] }}{% else %}{{ item.default }}{% endif %}" />
+              {% endif %}
+
+              {% if item.type == 'textarea' %}
+                <textarea name="{{ section_name }}[{{ item_name }}]"  {% if item.width or item.height %}style="{% if item.width %}width: {{ item.width }};{% endif %}{% if item.height %}height: {{ item.height }};{% endif %}"{% endif %}>{% if saved_config[section_name][item_name] %}{{ saved_config[section_name][item_name] }}{% else %}{{ item.default }}{% endif %}</textarea>
+              {% endif %}
+
+              {% if item.type == 'checkbox' %}
+                {% if item.options %}
+                  {% for option in item.options %}
+                    <input type="checkbox" name="{{ section_name }}[{{ item_name }}]" value="{{ option.value }}" {% if saved_config[section_name][item_name] == option.value %}checked="checked"{% endif %} {% if not saved_config[section_name] %} {% if item.default == option.value %}checked="checked"{% endif %}{% endif %} />{{ option.value|capitalize }}
+                  {% endfor %}
+                {% endif %}
+              {% endif %}
+
+              {% if item.type == 'radio' %}
+                {% if item.options %}
+                  {% for option in item.options %}
+                    <input type="radio" name="{{ section_name }}[{{ item_name }}]" value="{{ option.value }}" {% if saved_config[section_name][item_name] == option.value %}checked="checked"{% endif %}{% if not saved_config[section_name] %} {% if item.default == option.value %}checked="checked"{% endif %}{% endif %} />{{ option.value|capitalize }}
+                  {% endfor %}
+                {% endif %}
+              {% endif %}
+
+              {% if item.type == 'forumicon' %}
+              <input id="{{ item_name }}" name="{{ section_name }}[{{ item_name }}]" value="{% if saved_config[section_name][item_name] %}{{ saved_config[section_name][item_name] }}{% else %}{{ item.default }}{% endif %}" />
+              <div class="{{ item_name }}_clone icon_preview"></div>
+              {% endif %}
+
+            </div>
+          </div>
+          {% endfor %}
+        </section>
+        {% endfor %}
+        <div class="form-element">
+          <input class="button1 icon icon-tools" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />
+        </div>
+        {S_FORM_TOKEN}
+      </div>
+    </div>
+
+  </section>
+</form>
+
+<!-- INCLUDE overall_footer.html -->

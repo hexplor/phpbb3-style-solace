@@ -1,0 +1,303 @@
+/* Former imageset */
+span.imageset {
+	display: inline-block !important;
+	background: transparent none 0 0 no-repeat;
+	margin: 0;
+	padding: 0;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+/* Global imageset items */
+.imageset.site_logo {
+	padding-left: 149px;
+	padding-top: 52px;
+}
+.imageset.forum_link {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.forum_read {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.forum_read_locked {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.forum_read_subforum {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.forum_unread {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.forum_unread_locked {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.forum_unread_subforum {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.topic_moved {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.topic_read {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.topic_read_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.topic_read_hot {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.topic_read_hot_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.topic_read_locked {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.topic_read_locked_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.topic_unread {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.topic_unread_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.topic_unread_hot {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.topic_unread_hot_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.topic_unread_locked {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.topic_unread_locked_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.sticky_read {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.sticky_read_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.sticky_read_locked {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.sticky_read_locked_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.sticky_unread {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.sticky_unread_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.sticky_unread_locked {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.sticky_unread_locked_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.announce_read {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.announce_read_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.announce_read_locked {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.announce_read_locked_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.announce_unread {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.announce_unread_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.announce_unread_locked {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.announce_unread_locked_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.global_read {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.global_read_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.global_read_locked {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.global_read_locked_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.global_unread {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.global_unread_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.global_unread_locked {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.global_unread_locked_mine {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.subforum_read {
+	padding-left: 11px;
+	padding-top: 9px;
+}
+.imageset.subforum_unread {
+	padding-left: 11px;
+	padding-top: 9px;
+}
+.imageset.pm_read {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.pm_unread {
+	padding-left: 27px;
+	padding-top: 27px;
+}
+.imageset.icon_back_top {
+	padding-left: 11px;
+	padding-top: 11px;
+}
+.imageset.phpbb_aol-icon, .imageset.icon_contact_aim {
+	padding-left: 20px;
+	padding-top: 20px;
+}
+.imageset.icon_contact_email {
+	padding-left: 20px;
+	padding-top: 20px;
+}
+.imageset.icon_contact_icq, .imageset.phpbb_icq-icon {
+	padding-left: 20px;
+	padding-top: 20px;
+}
+.imageset.icon_contact_jabber {
+	padding-left: 20px;
+	padding-top: 20px;
+}
+.imageset.phpbb_wlm-icon, .imageset.icon_contact_msnm {
+	padding-left: 20px;
+	padding-top: 20px;
+}
+.imageset.icon_contact_www, .imageset.phpbb_website-icon {
+	padding-left: 20px;
+	padding-top: 20px;
+}
+.imageset.icon_contact_yahoo, .imageset.phpbb_yahoo-icon {
+	padding-left: 20px;
+	padding-top: 20px;
+}
+.imageset.icon_post_delete {
+	padding-left: 20px;
+	padding-top: 20px;
+}
+.imageset.icon_post_info {
+	padding-left: 20px;
+	padding-top: 20px;
+}
+.imageset.icon_post_report {
+	padding-left: 20px;
+	padding-top: 20px;
+}
+.imageset.icon_post_target {
+	padding-left: 19px;
+	padding-top: 9px;
+}
+.imageset.icon_post_target_unread {
+	padding-left: 11px;
+	padding-top: 9px;
+}
+.imageset.icon_topic_attach {
+	padding-left: 7px;
+	padding-top: 10px;
+}
+.imageset.icon_topic_latest {
+	padding-left: 11px;
+	padding-top: 9px;
+}
+.imageset.icon_topic_newest {
+	padding-left: 11px;
+	padding-top: 9px;
+}
+.imageset.icon_topic_reported {
+	padding-left: 16px;
+	padding-top: 14px;
+}
+.imageset.icon_topic_deleted {
+	padding-left: 16px;
+	padding-top: 14px;
+}
+.imageset.icon_topic_unapproved {
+	padding-left: 16px;
+	padding-top: 14px;
+}
+.imageset.icon_topic_poll {
+	padding-left: 11px;
+	padding-top: 10px;
+}
+.imageset.icon_user_warn {
+	padding-left: 20px;
+	padding-top: 20px;
+}
+
+.imageset.icon_contact {
+	padding-left: 16px;
+	padding-top: 12px;
+}
+
+
+/* English images for fallback */
+.imageset.icon_user_online {
+	padding-left: 58px;
+	padding-top: 58px;
+}
