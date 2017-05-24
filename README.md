@@ -34,6 +34,7 @@ Solace is phpBB 3.1.x style only. I don't have time to support more recent versi
 # Installation
 
 ``solace`` -> upload to ``phpbb3/styles/``
+
 ``ext\devlom`` -> upload to ``phpbb3/ext/``
 
-Install extension and configurator. Enjoy. Read ``documentation`` for detailed install instructions.
+Install style and extension. Enjoy. Read ``documentation`` for detailed install instructions.
