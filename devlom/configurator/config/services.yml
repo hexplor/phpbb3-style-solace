@@ -2,10 +2,10 @@ services:
     devlom.configurator.listener:
         class: devlom\configurator\event\main_listener
         arguments:
-            - @controller.helper
-            - @template
-            - @user
-            - @path_helper
-            - @dbal.conn
+            - "@controller.helper"
+            - "@template"
+            - "@user"
+            - "@path_helper"
+            - "@dbal.conn"
         tags:
             - { name: event.listener }
