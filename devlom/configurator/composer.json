@@ -1,7 +1,7 @@
 {
 	"name": "devlom/configurator",
 	"type": "phpbb-extension",
-	"description": "Devlom Configurator Extension for phpBB 3.1 and Devlom styles.",
+	"description": "Devlom Configurator Extension for phpBB 3.1+ and Devlom styles.",
 	"homepage": "https://www.devlom.com",
 	"version": "1.0.0",
 	"time": "2016-02-03",
@@ -21,7 +21,7 @@
 	"extra": {
 		"display-name": "Devlom Configurator Extension",
 		"soft-require": {
-			"phpbb/phpbb": ">=3.1.0-RC2,<3.2.*@dev"
+			"phpbb/phpbb": ">=3.1.0-RC2,<3.4.*@dev"
 		},
     "version-check": {
         "host": "devlom.com",

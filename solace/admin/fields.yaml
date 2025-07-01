@@ -6,7 +6,7 @@
       type: picker
       default: "#eac02c"
     - name: Accent2
-      description: Second accent color for your forum. This color is covers light content areas of the forum ie: blockquote and similar.
+      description: "Second accent color for your forum. This color is covers light content areas of the forum ie: blockquote and similar."
       type: picker
       default: "#ececec"
     - name: Accent Light
@@ -80,7 +80,7 @@
       description: General font size of the forum.
       type: text
       default: "13px"
-      size: 50px;
+      size: "50px"
     - name: Font Spans
       description: Enable or disable colored font spans headers in the forum.
       type: radio
@@ -103,7 +103,7 @@
       description: Font size of your menu.
       type: text
       default: "15px"
-      size: 50px;
+      size: "50px"
     - name: Preset Switcher
       description: Enable or disable color variations preset switcher in the top menu.
       type: radio
@@ -133,7 +133,7 @@
       description: Font size of your logo text.
       type: text
       default: "40px"
-      size: 50px;
+      size: "50px"
     - name: Image
       description: File name of logo image (<strong>Image</strong> must be selected in logo <strong>Type</strong>). Upload logo to <strong>styles/solace/theme/images/</strong> first.
       type: image
@@ -143,12 +143,12 @@
       description: Logo image width
       type: text
       default: "120px"
-      size: 50px;
+      size: "50px"
     - name: Height
       description: Logo image width
       type: text
       default: "45px"
-      size: 50px;
+      size: "50px"
     - name: Link
       description: Where user should be redirected after clicking a logo.
       type: text
@@ -186,7 +186,7 @@
       description: Main slideshow title fontsize.
       type: text
       default: "100px"
-      size: 50px;
+      size: "50px"
     - name: Description Font
       description: Pick preferred font from Google WebFonts directory for slideshow description.
       type: font
@@ -195,7 +195,7 @@
       description: Slideshow description font size.
       type: text
       default: "1.7em"
-      size: 50px;
+      size: "50px"
     - name: Transition
       description: You can customize slideshow transition effects.
       type: select
@@ -224,7 +224,7 @@
       description: If no height specified slideshow will adjust to image height.
       type: text
       default: ""
-      size: 50px;
+      size: "50px"
 
 - name: Footer
   icon: display2
