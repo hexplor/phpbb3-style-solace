@@ -32,30 +32,30 @@
 						{% if menu_items %}
 						<ul class="condense menu-bar left">
 							{% for item in menu_items %}
-							<li {% if item.submenu %}class="has-dropdown not-click"{% endif %}><a {% if item.active %}class="active"{% endif %} href="{{ item.url }}">{% if item.icon %}<i class="{% if item.icon_provider == 'fontawesome' %}fa fa{% else %}lineicon{% endif %}-{{ item.icon }}"></i>{% endif %}<span>{{ item.name }}<span></a>
+							<li {% if item.submenu %}class="has-dropdown not-click"{% endif %}><a {% if item.active %}class="active"{% endif %} href="{{ item.url }}">{% if item.icon %}<i class="{% if item.icon_provider == 'fontawesome' %}fa fa-{{ item.icon }}{% else %}lineicon-{{ item.icon }}{% endif %}"></i>{% endif %}<span>{{ item.name }}<span></a>
 								{% if item.submenu %}
 								<ul class="dropdown">
 									<li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
 									{% for sub1 in item.submenu %}
-									<li {% if sub1.submenu %}class="has-dropdown not-click"{% endif %}><a href="{{ sub1.url }}">{% if sub1.icon %}<i class="{% if sub1.icon_provider == 'fontawesome' %}fa fa{% else %}lineicon{% endif %}-{{ sub1.icon }}"></i>{% endif %}{{ sub1.name }}</a>
+									<li {% if sub1.submenu %}class="has-dropdown not-click"{% endif %}><a href="{{ sub1.url }}">{% if sub1.icon %}<i class="{% if sub1.icon_provider == 'fontawesome' %}fa fa-{{ sub1.icon }}{% else %}lineicon-{{ sub1.icon }}{% endif %}"></i>{% endif %}{{ sub1.name }}</a>
 
 										{% if sub1.submenu %}
 										<ul class="dropdown">
 											<li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
 											{% for sub2 in sub1.submenu %}
-											<li {% if sub2.submenu %}class="has-dropdown not-click"{% endif %}><a href="{{ sub2.url }}">{% if sub2.icon %}<i class="{% if sub2.icon_provider == 'fontawesome' %}fa fa{% else %}lineicon{% endif %}-{{ sub2.icon }}"></i>{% endif %}{{ sub2.name }}</a>
+											<li {% if sub2.submenu %}class="has-dropdown not-click"{% endif %}><a href="{{ sub2.url }}">{% if sub2.icon %}<i class="{% if sub2.icon_provider == 'fontawesome' %}fa fa-{{ sub2.icon }}{% else %}lineicon-{{ sub2.icon }}{% endif %}"></i>{% endif %}{{ sub2.name }}</a>
 
 												{% if sub2.submenu %}
 												<ul class="dropdown">
 													<li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
 													{% for sub3 in sub2.submenu %}
-													<li {% if sub3.submenu %}class="has-dropdown not-click"{% endif %}><a href="{{ sub3.url }}">{% if sub3.icon %}<i class="{% if sub3.icon_provider == 'fontawesome' %}fa fa{% else %}lineicon{% endif %}-{{ sub3.icon }}"></i>{% endif %}{{ sub3.name }}</a>
+													<li {% if sub3.submenu %}class="has-dropdown not-click"{% endif %}><a href="{{ sub3.url }}">{% if sub3.icon %}<i class="{% if sub3.icon_provider == 'fontawesome' %}fa fa-{{ sub3.icon }}{% else %}lineicon-{{ sub3.icon }}{% endif %}"></i>{% endif %}{{ sub3.name }}</a>
 
 														{% if sub3.submenu %}
 														<ul class="dropdown">
 															<li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
 															{% for sub4 in sub3.submenu %}
-															<li><a href="{{ sub4.url }}">{% if sub4.icon %}<i class="{% if sub4.icon_provider == 'fontawesome' %}fa fa{% else %}lineicon{% endif %}-{{ sub4.icon }}"></i>{% endif %}{{ sub4.name }}</a></li>
+															<li><a href="{{ sub4.url }}">{% if sub4.icon %}<i class="{% if sub4.icon_provider == 'fontawesome' %}fa fa-{{ sub4.icon }}{% else %}lineicon-{{ sub4.icon }}{% endif %}"></i>{% endif %}{{ sub4.name }}</a></li>
 															{% endfor %}
 														</ul>
 														{% endif %}

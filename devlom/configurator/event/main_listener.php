@@ -100,13 +100,11 @@ class main_listener implements EventSubscriberInterface
         $cache->put('_yaml_admfields_time', filemtime($admin_fields));
         $template->assign_vars(array(
           'admin_fields' =>  $yaml_array,
-        )
-      );
+        ));
     } else {
       $template->assign_vars(array(
         'admin_fields' =>  $cache->get('_yaml_admfields'),
-        )
-      );
+      ));
     }
   }
   // Config
@@ -118,13 +116,11 @@ class main_listener implements EventSubscriberInterface
       $cache->put('_yaml_config_time', filemtime($yaml_config));
       $template->assign_vars(array(
         'saved_config' =>  $yaml_array,
-      )
-    );
+      ));
   } else {
     $template->assign_vars(array(
       'saved_config' =>  $cache->get('_yaml_config'),
-      )
-    );
+    ));
   }
 }
 // Presets
@@ -143,8 +139,7 @@ if(file_exists($yaml_presets)) {
 } else {
   $template->assign_vars(array(
     'presets' =>  $cache->get('_yaml_presets'),
-    )
-  );
+  ));
 }
 }
 

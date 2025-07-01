@@ -37,7 +37,7 @@
             {% endif %}
 
 						{% for item in menu %}
-							<a href="{{ item.url }}"><i class="{% if item.provider == 'lineicon' %}lineicon{% endif %}{% if item.provider == 'fontawesome' %}fa fa{% endif %}-{{ item.icon }}"></i></a>
+							<a href="{{ item.url }}"><i class="{% if item.provider == 'lineicon' %}lineicon-{{ item.icon }}{% endif %}{% if item.provider == 'fontawesome' %}fa fa-{{ item.icon }}{% endif %}"></i></a>
 						{% endfor %}
 					</div>
 				</li>

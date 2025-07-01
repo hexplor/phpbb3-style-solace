@@ -46,4 +46,14 @@ $('#{{ section.name|lower|replace({' ': '_'}) }}\\[{{ item.name|lower|replace({'
 {% endfor %}
 {% endfor %}
 
+// Icon provider change handler
+$('#icons\\[provider\\]').change(function() {
+    var provider = $(this).val();
+    if (provider == 'fontawesome') {
+        $('.icon_preview').css({'font-family': 'FontAwesome', 'font-weight': 'normal'});
+    } else if (provider == 'lineicons') {
+        $('.icon_preview').css({'font-family': 'et-line', 'font-weight': 'bold'});
+    }
+});
+
 </script>

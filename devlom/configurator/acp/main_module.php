@@ -36,6 +36,20 @@ class main_module
       }
     }
 
+    // Load saved config
+    $config_file = $phpbb_root_path."styles".DIRECTORY_SEPARATOR.$user->style['style_path']."/config.yaml";
+    $saved_config = array();
+    if(file_exists($config_file)) {
+      $saved_config = $yaml->parse(file_get_contents($config_file));
+    }
+
+    // Load presets
+    $presets_file = $phpbb_root_path."styles".DIRECTORY_SEPARATOR.$user->style['style_path']."/presets.yaml";
+    $presets = array();
+    if(file_exists($presets_file)) {
+      $presets = $yaml->parse(file_get_contents($presets_file));
+    }
+
 		if ($request->is_set_post('submit'))
 		{
 			if (!check_form_key('devlom/configurator'))
@@ -60,6 +74,9 @@ class main_module
 			'U_ACTION'				=> $this->u_action,
 			'DEVLOM_CONFIGURATOR_GOODBYE'		=> $config['devlom_configurator_goodbye'],
       'ACTUAL_STYLE' => $user->style['style_path'],
+      'admin_fields' => $fields,
+      'saved_config' => $saved_config,
+      'presets' => $presets,
 		));
 	}
 }
