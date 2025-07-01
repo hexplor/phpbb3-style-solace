@@ -79,3 +79,6 @@ Templates are minimal due to inheritance:
 - Templates: `solace/template/`
 - Stylesheets: `solace/theme/`
 - Documentation: `documentation/`
+
+## Memories
+- Solace inherits templates (html files) from prosilver (path to view: /var/www/html/phpbb/styles/prosilver)
