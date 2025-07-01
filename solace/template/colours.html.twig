@@ -788,7 +788,7 @@
 	.button.icon-button.warn-icon:before {content: "\e04f";}
 
 	/* Forum icons & Topic icons */
-	dl.icon:before {
+	dl.row-item:before {
 		{% if current_config.icons.provider == 'lineicons' %}
 			font-family: 'et-line';
 			font-weight: bold;
@@ -813,56 +813,56 @@
 		margin-left: 2px;
 	}
 
-	.global_read:before                           {content: "\{{ current_config.icons.global_read }}";}
-	.global_read_mine:before                      {content: "\{{ current_config.icons.global_read_mine }}";}
-	.global_read_locked:before                    {content: "\{{ current_config.icons.global_read_locked }}";}
-	.global_read_locked_mine:before               {content: "\{{ current_config.icons.global_read_locked_mine }}";}
-	.global_unread:before                         {content: "\{{ current_config.icons.global_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important;}
-	.global_unread_mine:before                    {content: "\{{ current_config.icons.global_unread_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important;}
-	.global_unread_locked:before                  {content: "\{{ current_config.icons.global_unread_locked }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important;}
-	.global_unread_locked_mine:before             {content: "\{{ current_config.icons.global_unread_locked_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	dl.row-item.global_read:before                           {content: "\{{ current_config.icons.global_read }}";}
+	dl.row-item.global_read_mine:before                      {content: "\{{ current_config.icons.global_read_mine }}";}
+	dl.row-item.global_read_locked:before                    {content: "\{{ current_config.icons.global_read_locked }}";}
+	dl.row-item.global_read_locked_mine:before               {content: "\{{ current_config.icons.global_read_locked_mine }}";}
+	dl.row-item.global_unread:before                         {content: "\{{ current_config.icons.global_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important;}
+	dl.row-item.global_unread_mine:before                    {content: "\{{ current_config.icons.global_unread_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important;}
+	dl.row-item.global_unread_locked:before                  {content: "\{{ current_config.icons.global_unread_locked }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important;}
+	dl.row-item.global_unread_locked_mine:before             {content: "\{{ current_config.icons.global_unread_locked_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
 
-	.announce_read:before                         {content: "\{{ current_config.icons.announce_read }}";}
-	.announce_read_mine:before                    {content: "\{{ current_config.icons.announce_read_mine }}";}
-	.announce_read_locked:before                  {content: "\{{ current_config.icons.announce_read_locked }}";}
-	.announce_read_locked_mine:before             {content: "\{{ current_config.icons.announce_read_locked_mine }}";}
-	.announce_unread:before                       {content: "\{{ current_config.icons.announce_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
-	.announce_unread_mine:before                  {content: "\{{ current_config.icons.announce_unread_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
-	.announce_unread_locked:before                {content: "\{{ current_config.icons.announce_unread_locked }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
-	.announce_unread_locked_mine:before           {content: "\{{ current_config.icons.announce_unread_locked_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	dl.row-item.announce_read:before                         {content: "\{{ current_config.icons.announce_read }}";}
+	dl.row-item.announce_read_mine:before                    {content: "\{{ current_config.icons.announce_read_mine }}";}
+	dl.row-item.announce_read_locked:before                  {content: "\{{ current_config.icons.announce_read_locked }}";}
+	dl.row-item.announce_read_locked_mine:before             {content: "\{{ current_config.icons.announce_read_locked_mine }}";}
+	dl.row-item.announce_unread:before                       {content: "\{{ current_config.icons.announce_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	dl.row-item.announce_unread_mine:before                  {content: "\{{ current_config.icons.announce_unread_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	dl.row-item.announce_unread_locked:before                {content: "\{{ current_config.icons.announce_unread_locked }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	dl.row-item.announce_unread_locked_mine:before           {content: "\{{ current_config.icons.announce_unread_locked_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
 
-	.forum_link:before                            {content: "\{{ current_config.icons.forum_link }}";}
-	.forum_read:before                            {content: "\{{ current_config.icons.forum_read }}";}
-	.forum_read_locked:before                     {content: "\{{ current_config.icons.forum_read_locked }}";}
-	.forum_read_subforum:before                   {content: "\{{ current_config.icons.forum_read_subforum }}";}
-	.forum_unread:before                          {content: "\{{ current_config.icons.forum_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
-	.forum_unread_locked:before                   {content: "\{{ current_config.icons.forum_unread_locked }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
-	.forum_unread_subforum:before                 {content: "\{{ current_config.icons.forum_unread_subforum }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
-	.sticky_read:before                           {content: "\{{ current_config.icons.sticky_read }}";}
-	.sticky_read_mine:before                      {content: "\{{ current_config.icons.sticky_read_mine }}";}
-	.sticky_read_locked:before                    {content: "\{{ current_config.icons.sticky_read_locked }}";}
-	.sticky_read_locked_mine:before               {content: "\{{ current_config.icons.sticky_read_locked_mine }}";}
-	.sticky_unread:before                         {content: "\{{ current_config.icons.sticky_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
-	.sticky_unread_mine:before                    {content: "\{{ current_config.icons.sticky_unread_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
-	.sticky_unread_locked:before                  {content: "\{{ current_config.icons.sticky_unread_locked }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
-	.sticky_unread_locked_mine:before             {content: "\{{ current_config.icons.sticky_unread_locked_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	dl.row-item.forum_link:before                            {content: "\{{ current_config.icons.forum_link }}";}
+	dl.row-item.forum_read:before                            {content: "\{{ current_config.icons.forum_read }}";}
+	dl.row-item.forum_read_locked:before                     {content: "\{{ current_config.icons.forum_read_locked }}";}
+	dl.row-item.forum_read_subforum:before                   {content: "\{{ current_config.icons.forum_read_subforum }}";}
+	dl.row-item.forum_unread:before                          {content: "\{{ current_config.icons.forum_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	dl.row-item.forum_unread_locked:before                   {content: "\{{ current_config.icons.forum_unread_locked }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	dl.row-item.forum_unread_subforum:before                 {content: "\{{ current_config.icons.forum_unread_subforum }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	dl.row-item.sticky_read:before                           {content: "\{{ current_config.icons.sticky_read }}";}
+	dl.row-item.sticky_read_mine:before                      {content: "\{{ current_config.icons.sticky_read_mine }}";}
+	dl.row-item.sticky_read_locked:before                    {content: "\{{ current_config.icons.sticky_read_locked }}";}
+	dl.row-item.sticky_read_locked_mine:before               {content: "\{{ current_config.icons.sticky_read_locked_mine }}";}
+	dl.row-item.sticky_unread:before                         {content: "\{{ current_config.icons.sticky_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	dl.row-item.sticky_unread_mine:before                    {content: "\{{ current_config.icons.sticky_unread_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	dl.row-item.sticky_unread_locked:before                  {content: "\{{ current_config.icons.sticky_unread_locked }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
+	dl.row-item.sticky_unread_locked_mine:before             {content: "\{{ current_config.icons.sticky_unread_locked_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; }
 
-	.topic_moved:before                           {content: "\{{ current_config.icons.topic_moved }}";}
-	.topic_read:before                            {content: "\{{ current_config.icons.topic_read }}";}
-	.topic_read_mine:before                       {content: "\{{ current_config.icons.topic_read_mine }}";}
-	.topic_read_hot:before                        {content: "\{{ current_config.icons.topic_read_hot }}";}
-	.topic_read_hot_mine:before                   {content: "\{{ current_config.icons.topic_read_hot_mine }}";}
-	.topic_read_locked:before                     {content: "\{{ current_config.icons.topic_read_locked }}";}
-	.topic_read_locked_mine:before                {content: "\{{ current_config.icons.topic_read_locked_mine }}";}
-	.topic_unread:before                          {content: "\{{ current_config.icons.topic_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
-	.topic_unread_mine:before                     {content: "\{{ current_config.icons.topic_unread_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
-	.topic_unread_hot:before                      {content: "\{{ current_config.icons.topic_unread_hot }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
-	.topic_unread_hot_mine:before                 {content: "\{{ current_config.icons.topic_unread_hot_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
-	.topic_unread_locked:before                   {content: "\{{ current_config.icons.topic_unread_locked }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
-	.topic_unread_locked_mine:before              {content: "\{{ current_config.icons.topic_unread_locked_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
+	dl.row-item.topic_moved:before                           {content: "\{{ current_config.icons.topic_moved }}";}
+	dl.row-item.topic_read:before                            {content: "\{{ current_config.icons.topic_read }}";}
+	dl.row-item.topic_read_mine:before                       {content: "\{{ current_config.icons.topic_read_mine }}";}
+	dl.row-item.topic_read_hot:before                        {content: "\{{ current_config.icons.topic_read_hot }}";}
+	dl.row-item.topic_read_hot_mine:before                   {content: "\{{ current_config.icons.topic_read_hot_mine }}";}
+	dl.row-item.topic_read_locked:before                     {content: "\{{ current_config.icons.topic_read_locked }}";}
+	dl.row-item.topic_read_locked_mine:before                {content: "\{{ current_config.icons.topic_read_locked_mine }}";}
+	dl.row-item.topic_unread:before                          {content: "\{{ current_config.icons.topic_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
+	dl.row-item.topic_unread_mine:before                     {content: "\{{ current_config.icons.topic_unread_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
+	dl.row-item.topic_unread_hot:before                      {content: "\{{ current_config.icons.topic_unread_hot }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
+	dl.row-item.topic_unread_hot_mine:before                 {content: "\{{ current_config.icons.topic_unread_hot_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
+	dl.row-item.topic_unread_locked:before                   {content: "\{{ current_config.icons.topic_unread_locked }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
+	dl.row-item.topic_unread_locked_mine:before              {content: "\{{ current_config.icons.topic_unread_locked_mine }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
 
-	.pm_read:before                               {content: "\{{ current_config.icons.pm_read }}";}
-	.pm_unread:before                             {content: "\{{ current_config.icons.pm_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
+	dl.row-item.pm_read:before                               {content: "\{{ current_config.icons.pm_read }}";}
+	dl.row-item.pm_unread:before                             {content: "\{{ current_config.icons.pm_unread }}"; color: {{ current_preset.forumicon_color_unread }} !important; background-color: {{ current_preset.forumicon_background_unread }} !important; box-shadow: 0 0 0 1px {{ current_preset.forumicon_background_unread }}, 0 0 0 1px {{ current_preset.forumicon_background_unread }} !important;}
 
   /* Imageset */
   span.imageset:before, ul.topiclist li.row dt a.subforum:before, .online:before {
@@ -882,8 +882,8 @@
 
   .imageset.subforum_read:before, ul.topiclist li.row dt a.subforum.read:before {content: "\f07b";}
   .imageset.subforum_unread:before, ul.topiclist li.row dt a.subforum.unread:before {content: "\f07c";}
-  .imageset.pm_read:before, .imageset.pm-icon:before{content: "\f003";}
-  .imageset.pm_unread:before{content: "\f0e0";}
+  .imagesetdl.row-item.pm_read:before, .imageset.pm-icon:before{content: "\f003";}
+  .imagesetdl.row-item.pm_unread:before{content: "\f0e0";}
   .imageset.icon_back_top:before{content: "\f106";}
   .imageset.phpbb_aol-icon:before,.imageset.icon_contact_aim:before{content: "\f0ac";}
   .imageset.icon_contact_email:before,.imageset.email-icon:before	{content: "\f0e0";}
