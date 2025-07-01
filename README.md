@@ -29,7 +29,7 @@ http://demo.devlom.com/phpbb3/solace
 
 # phpBB version support
 
-Solace is phpBB 3.1.x style only. I don't have time to support more recent versions and to develop new releases. That's why I'm releasing it for free. Feel free to update it if you have time. Bugfixes, pull requests are always welcome :)
+Solace is compatible with phpBB 3.1.x, 3.2.x, and 3.3.x. The style has been updated to ensure full compatibility with modern phpBB versions while maintaining backwards compatibility.
 
 # Installation
 

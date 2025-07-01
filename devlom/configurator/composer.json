@@ -3,7 +3,7 @@
 	"type": "phpbb-extension",
 	"description": "Devlom Configurator Extension for phpBB 3.1+ and Devlom styles.",
 	"homepage": "https://www.devlom.com",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"time": "2016-02-03",
 	"license": "Commercial",
 	"authors": [{
