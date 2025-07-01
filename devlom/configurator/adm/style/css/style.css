@@ -97,19 +97,3 @@ img.logo_preview {
   vertical-align: middle;
   margin-left: 20px;
 }
-
-/* Avatar
----------------------------------------- */
-.lastpostavatar {
-      display: inline-block;
-    width: 27px;
-    height: 23px;
-    border-radius: 100%;
-}
-
-.lastpostavatar img {
-  width: 100%;
-  height: auto;
-  border-radius: 100%;
-  vertical-align: middle;
-}

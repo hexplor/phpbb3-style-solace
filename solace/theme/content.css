@@ -840,3 +840,21 @@ table.fixed-width-table {
 	background: rgba(0, 0, 0, .3);
 	border-radius: 3px;
 }
+
+
+/* Avatar
+---------------------------------------- */
+.lastpostavatar {
+      display: inline-block;
+    width: 27px;
+    height: 23px;
+    border-radius: 100%;
+}
+
+.lastpostavatar img {
+  width: 100%;
+  height: auto;
+  border-radius: 100%;
+  vertical-align: middle;
+  padding: 0 4px;
+}
