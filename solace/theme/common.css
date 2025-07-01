@@ -603,6 +603,7 @@ ul.linklist.bulletin > li:before {
 }
 
 .dropdown {
+	display: none;
 	position: absolute;
 	left: 0;
 	top: 1.2em;
